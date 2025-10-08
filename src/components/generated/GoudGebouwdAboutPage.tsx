@@ -45,7 +45,7 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
               </h2>
               <div className="space-y-6 text-[#6b6b6b] text-base sm:text-lg leading-relaxed">
                 <p>
-                  <span>Goud Gebouwd is een inspiratiegids die projecten</span><br />
+                  <span>Fout Gebouwd is een inspiratiegids die projecten</span><br />
                   <span>toont uit het Groningse versterkingsgebied</span><br />
                   <span>die zijn uitgevoerd met oog voor ruimtelijke</span><br />
                   <span>kwaliteit en karakter.</span>
