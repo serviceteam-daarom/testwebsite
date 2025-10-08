@@ -24,7 +24,7 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
           ease: [0.22, 1, 0.36, 1]
         }}>
             <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-[#4a4237] mb-8 sm:mb-12 tracking-tight leading-[0.95]">
-              <span className="block">OVER GOUD</span>
+              <span className="block">OVER FOUT</span>
               <span className="block">GEBOUWD</span>
             </h1>
           </motion.div>
@@ -41,7 +41,7 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
         }}>
             <div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4a4237] mb-6">
-                <span>Wat is Goud Gebouwd?</span>
+                <span>Wat is Fout Gebouwd?</span>
               </h2>
               <div className="space-y-6 text-[#6b6b6b] text-base sm:text-lg leading-relaxed">
                 <p>
