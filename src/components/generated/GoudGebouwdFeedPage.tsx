@@ -141,7 +141,7 @@ export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
               delay: 0.3,
               ease: [0.22, 1, 0.36, 1]
             }}>
-                FOUT
+                Fout
               </motion.span>
               <motion.span className="block" initial={{
               y: 100,
@@ -154,7 +154,7 @@ export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
               delay: 0.5,
               ease: [0.22, 1, 0.36, 1]
             }}>
-                GEBOUWD
+                Gebouwd
               </motion.span>
             </motion.h1>
             <motion.div className="text-[#4a4237] text-base sm:text-lg leading-relaxed max-w-xl" initial={{
