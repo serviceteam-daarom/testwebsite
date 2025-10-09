@@ -18,6 +18,7 @@ type GoudGebouwdFeedPageProps = {
   className?: string;
   onNavigate?: (page: 'feed' | 'map' | 'index' | 'about') => void;
 };
+const heroTitleLines = ['FOUT', 'GEBOUWD'];
 const projects: Project[] = [{
   id: '1',
   number: '#09',
@@ -130,7 +131,7 @@ export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
             duration: 0.3,
             delay: 0.2
           }}>
-              <motion.span className="block" initial={{
+              {heroTitleLines.map((line, index) => <motion.span key={line} className="block" initial={{
               y: 100,
               opacity: 0
             }} animate={{
@@ -138,24 +139,11 @@ export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
               opacity: 1
             }} transition={{
               duration: 0.8,
-              delay: 0.3,
+              delay: 0.3 + index * 0.2,
               ease: [0.22, 1, 0.36, 1]
             }}>
-                FOUT
-              </motion.span>
-              <motion.span className="block" initial={{
-              y: 100,
-              opacity: 0
-            }} animate={{
-              y: 0,
-              opacity: 1
-            }} transition={{
-              duration: 0.8,
-              delay: 0.5,
-              ease: [0.22, 1, 0.36, 1]
-            }}>
-                GEBOUWD
-              </motion.span>
+                {line}
+              </motion.span>)}
             </motion.h1>
             <motion.div className="text-[#4a4237] text-base sm:text-lg leading-relaxed max-w-xl" initial={{
             opacity: 0,
