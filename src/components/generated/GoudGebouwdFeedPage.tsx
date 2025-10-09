@@ -141,7 +141,7 @@ export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
               delay: 0.3,
               ease: [0.22, 1, 0.36, 1]
             }}>
-                GOUD
+                FOUT
               </motion.span>
               <motion.span className="block" initial={{
               y: 100,
@@ -169,12 +169,12 @@ export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
             ease: [0.22, 1, 0.36, 1]
           }}>
               <p>
-                <span>Welkom bij Goud Gebouwd. Een inspiratiegids</span><br />
+                <span>Welkom bij Fout Gebouwd. Een inspiratiegids</span><br />
                 <span>met projecten uit het Groningse</span><br />
-                <span>versterkingsgebied, uitgevoerd met oog voor</span><br />
-                <span>ruimtelijke kwaliteit en karakter. Geselecteerd</span><br />
-                <span>door het atelier van de regiobouwmeester,</span><br />
-                <span>onderdeel van Nationaal Coördinator Groningen.</span>
+                <span>versterkingsgebied, met weinig oog voor</span><br />
+                <span>de bewoners en de dorpen. Geselecteerd</span><br />
+                <span>door de bewoners van de provincie Groningen,</span><br />
+                <span>voor het Nationaal Coördinator Groningen en de politiek in Den Haag.</span>
               </p>
             </motion.div>
           </div>
