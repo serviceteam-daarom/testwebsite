@@ -24,8 +24,7 @@ const pageToLabel: Record<Page, string> = {
   about: 'Over'
 };
 
-const LEFT_LINKS: Page[] = ['feed', 'map', 'index'];
-const RIGHT_LINKS: Page[] = ['about'];
+const LINKS: Page[] = ['feed', 'map', 'index', 'about'];
 
 export default function Navigation({
   currentPage,
@@ -52,7 +51,7 @@ export default function Navigation({
     <a
       key={page}
       href={pageToHash[page]}
-      className="menu-link"
+      className="main-nav__link"
       aria-current={currentPage === page ? 'page' : undefined}
       onClick={event => handleLinkClick(event, page)}
     >
@@ -61,13 +60,8 @@ export default function Navigation({
   );
 
   return (
-    <section className={`menu ${className}`.trim()}>
-      <nav className="menu-left" aria-label="Hoofdmenu">
-        {LEFT_LINKS.map(renderLink)}
-      </nav>
-      <div className="menu-right">
-        {RIGHT_LINKS.map(renderLink)}
-      </div>
-    </section>
+    <nav className={`main-nav ${className}`.trim()} aria-label="Hoofdmenu">
+      {LINKS.map(renderLink)}
+    </nav>
   );
 }
