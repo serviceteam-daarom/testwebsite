@@ -5,9 +5,9 @@ import { GoudGebouwdMapPage } from './components/generated/GoudGebouwdMapPage';
 import { GoudGebouwdIndexPage } from './components/generated/GoudGebouwdIndexPage';
 import { GoudGebouwdAboutPage } from './components/generated/GoudGebouwdAboutPage';
 
-let theme: Theme = 'light';
+const theme: Theme = 'light';
 // only use 'centered' container for standalone components, never for full page apps or websites.
-let container: Container = 'none';
+const container: Container = 'none';
 
 type Page = 'feed' | 'map' | 'index' | 'about';
 
