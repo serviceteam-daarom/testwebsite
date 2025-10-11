@@ -5,6 +5,53 @@ import { GoudGebouwdMapPage } from './components/generated/GoudGebouwdMapPage';
 import { GoudGebouwdIndexPage } from './components/generated/GoudGebouwdIndexPage';
 import { GoudGebouwdAboutPage } from './components/generated/GoudGebouwdAboutPage';
 
+type MenuProps = {
+  onNavigate: (page: Page) => void;
+  currentPage: Page;
+};
+
+function Menu({ onNavigate, currentPage }: MenuProps) {
+  return (
+    <nav className="main-nav full-width">
+      <div className="main-nav__left">
+        <a
+          href="#feed"
+          className={`main-nav__link ${currentPage === 'feed' ? 'active' : ''}`}
+          onClick={() => onNavigate('feed')}
+        >
+          Feed
+        </a>
+        <a
+          href="#map"
+          className={`main-nav__link ${currentPage === 'map' ? 'active' : ''}`}
+          onClick={() => onNavigate('map')}
+        >
+          Kaart
+        </a>
+        <a
+          href="#index"
+          className={`main-nav__link ${currentPage === 'index' ? 'active' : ''}`}
+          onClick={() => onNavigate('index')}
+        >
+          Index
+        </a>
+      </div>
+
+      <div className="main-nav__right">
+        <a
+          href="#about"
+          className={`main-nav__link ${currentPage === 'about' ? 'active' : ''}`}
+          onClick={() => onNavigate('about')}
+        >
+          Over
+        </a>
+      </div>
+    </nav>
+  );
+}
+
+
+
 const theme: Theme = 'light';
 // only use 'centered' container for standalone components, never for full page apps or websites.
 const container: Container = 'none';
@@ -76,15 +123,18 @@ function App() {
     }
   }, [currentPage, handleNavigate]);
 
-  if (container === 'centered') {
-    return (
-      <div className="h-full w-full flex flex-col items-center justify-center">
-        {generatedComponent}
-      </div>
-    );
-  } else {
-    return generatedComponent;
-  }
+ if (container === 'centered') {
+  return (
+    <div className="h-full w-full flex flex-col items-center justify-center">
+      <Menu onNavigate={handleNavigate} currentPage={currentPage} />
+      {generatedComponent}
+    </div>
+  );
+} else {
+  return (
+    <>
+      <Menu onNavigate={handleNavigate} currentPage={currentPage} />
+      {generatedComponent}
+    </>
+  );
 }
-
-export default App;
