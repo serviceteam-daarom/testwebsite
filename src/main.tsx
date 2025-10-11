@@ -1,3 +1,4 @@
+import './styles/main.css';
 import { StrictMode } from 'react';
 // Force light mode by removing dark class and preventing it from being added
 document.documentElement.classList.remove('dark');
