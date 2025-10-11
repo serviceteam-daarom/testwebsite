@@ -4,9 +4,9 @@ import { GoudGebouwdFeedPage } from './GoudGebouwdFeedPage';
 import { GoudGebouwdMapPage } from './GoudGebouwdMapPage';
 import { GoudGebouwdIndexPage } from './GoudGebouwdIndexPage';
 import { GoudGebouwdAboutPage } from './GoudGebouwdAboutPage';
-let theme: Theme = 'light';
+const theme: Theme = 'light';
 // only use 'centered' container for standalone components, never for full page apps or websites.
-let container: Container = 'none';
+const container: Container = 'none';
 type Page = 'feed' | 'map' | 'index' | 'about';
 
 const resolvePageFromHash = (hash: string): Page => {

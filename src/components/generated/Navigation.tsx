@@ -24,6 +24,9 @@ const pageToLabel: Record<Page, string> = {
   about: 'Over'
 };
 
+const LEFT_LINKS: Page[] = ['feed', 'map', 'index'];
+const RIGHT_LINKS: Page[] = ['about'];
+
 export default function Navigation({
   currentPage,
   onNavigate,
@@ -45,26 +48,26 @@ export default function Navigation({
     }
   };
 
+  const renderLink = (page: Page) => (
+    <a
+      key={page}
+      href={pageToHash[page]}
+      className="menu-link"
+      aria-current={currentPage === page ? 'page' : undefined}
+      onClick={event => handleLinkClick(event, page)}
+    >
+      {pageToLabel[page]}
+    </a>
+  );
+
   return (
-    <header id="header" className={`o-app__header ${className}`.trim()}>
-      <div className="m-header">
-        <nav className="m-header__nav" aria-label="Hoofdmenu">
-          <ul className="m-header__list">
-            {(['feed', 'map', 'index', 'about'] as Page[]).map(page => (
-              <li key={page} className="m-header__item">
-                <a
-                  href={pageToHash[page]}
-                  className="m-header__link"
-                  aria-current={currentPage === page ? 'page' : undefined}
-                  onClick={event => handleLinkClick(event, page)}
-                >
-                  {pageToLabel[page]}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+    <section className={`menu ${className}`.trim()}>
+      <nav className="menu-left" aria-label="Hoofdmenu">
+        {LEFT_LINKS.map(renderLink)}
+      </nav>
+      <div className="menu-right">
+        {RIGHT_LINKS.map(renderLink)}
       </div>
-    </header>
+    </section>
   );
 }
