@@ -21,7 +21,7 @@ const projects: Project[] = [{
   id: '1',
   number: '#01',
   title: 'Herbestemming voormalige school',
-  location: 'Uithuizen',
+  location: 'Garrelsweer',
   architect: 'De Zwarte Hond',
   year: '2021',
   category: 'Herbestemming'
@@ -29,7 +29,7 @@ const projects: Project[] = [{
   id: '2',
   number: '#02',
   title: 'Restauratie gemeentehuis',
-  location: 'Groningen',
+  location: 'Garrelsweer',
   architect: 'ONIX',
   year: '2022',
   category: 'Restauratie'
@@ -37,7 +37,7 @@ const projects: Project[] = [{
   id: '3',
   number: '#03',
   title: 'Nieuwbouw wooncomplex',
-  location: 'Bedum',
+  location: 'Garrelsweer',
   architect: 'LAOS',
   year: '2020',
   category: 'Nieuwbouw'
@@ -45,7 +45,7 @@ const projects: Project[] = [{
   id: '4',
   number: '#04',
   title: 'Verbouwing boerderij',
-  location: 'Winsum',
+  location: 'Garrelsweer',
   architect: 'MX13',
   year: '2021',
   category: 'Renovatie'
@@ -53,7 +53,7 @@ const projects: Project[] = [{
   id: '5',
   number: '#05',
   title: 'Duurzaam appartementencomplex',
-  location: 'Delfzijl',
+  location: 'Garrelsweer',
   architect: 'Zofa Architecten',
   year: '2023',
   category: 'Nieuwbouw'
@@ -61,7 +61,7 @@ const projects: Project[] = [{
   id: '6',
   number: '#06',
   title: 'Monumentale kerk herbestemming',
-  location: 'Overschild',
+  location: 'Garrelsweer',
   architect: 'De Zwarte Hond',
   year: '2022',
   category: 'Herbestemming'
@@ -69,7 +69,7 @@ const projects: Project[] = [{
   id: '7',
   number: '#07',
   title: 'Wilgenbos woonwijk',
-  location: 'Uithuizen-Noord',
+  location: 'Garrelsweer',
   architect: 'ONIX',
   year: '2021',
   category: 'Nieuwbouw'
@@ -77,7 +77,7 @@ const projects: Project[] = [{
   id: '8',
   number: '#08',
   title: 'Rijksmonument restauratie',
-  location: 'Groningen Centrum',
+  location: 'Garrelsweer',
   architect: 'LAOS',
   year: '2020',
   category: 'Restauratie'
@@ -85,7 +85,7 @@ const projects: Project[] = [{
   id: '9',
   number: '#09',
   title: 'Aardbevingsbestendige woningen',
-  location: 'Hoogezand',
+  location: 'Garrelsweer',
   architect: 'MX13',
   year: '2023',
   category: 'Nieuwbouw'
@@ -93,7 +93,7 @@ const projects: Project[] = [{
   id: '10',
   number: '#10',
   title: 'Dorpscentrum vernieuwing',
-  location: 'Zuidhorn',
+  location: 'Garrelsweer',
   architect: 'Zofa Architecten',
   year: '2022',
   category: 'Renovatie'
@@ -101,7 +101,7 @@ const projects: Project[] = [{
   id: '11',
   number: '#11',
   title: 'Verduurzaming gemeentehuis',
-  location: 'Lauwersoog',
+  location: 'Garrelsweer',
   architect: 'De Zwarte Hond',
   year: '2021',
   category: 'Renovatie'
@@ -109,7 +109,7 @@ const projects: Project[] = [{
   id: '12',
   number: '#12',
   title: 'Historisch pakhuis herbestemming',
-  location: 'Drieborg',
+  location: 'Garrelsweer',
   architect: 'ONIX',
   year: '2023',
   category: 'Herbestemming'
