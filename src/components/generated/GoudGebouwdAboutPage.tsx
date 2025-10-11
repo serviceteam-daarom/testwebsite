@@ -92,9 +92,9 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
               <span>Onze missie</span>
             </h2>
             <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed max-w-3xl">
-              <span>Het inspireren en informeren van bewoners,</span><br />
-              <span>opdrachtgevers en professionals over de</span><br />
-              <span>mogelijkheden voor kwalitatieve versterking en</span><br />
+              <span>Het inspireren en informeren van NCG en IMG,</span><br />
+              <span>overheid en andere professionals over de</span><br />
+              <span>gang van zaken bij versterking en</span><br />
               <span>nieuwbouw in het Groningse landschap.</span>
             </p>
           </motion.div>
@@ -168,7 +168,7 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-lg font-semibold text-[#4a4237] mb-3">
-                  <span>Nationaal Coördinator Groningen</span>
+                  <span>Team van Fout Gebouwd</span>
                 </h3>
                 <div className="text-[#6b6b6b] space-y-2">
                   <p>
@@ -186,7 +186,7 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
                 </h3>
                 <div className="text-[#6b6b6b] space-y-2">
                   <p>
-                    <span>info@goudgebouwd.nl</span>
+                    <span>info@foutgebouwd.nl</span>
                   </p>
                   <p>
                     <span>www.nationaalcoordinatorgroningen.nl</span>
