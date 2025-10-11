@@ -50,7 +50,7 @@ export default function Navigation({
       <div className="m-header">
         <nav className="m-header__nav" aria-label="Hoofdmenu">
           <ul className="m-header__list">
-            {(['feed', 'map', 'index'] as Page[]).map(page => (
+            {(['feed', 'map', 'index', 'about'] as Page[]).map(page => (
               <li key={page} className="m-header__item">
                 <a
                   href={pageToHash[page]}
@@ -62,20 +62,6 @@ export default function Navigation({
                 </a>
               </li>
             ))}
-          </ul>
-        </nav>
-        <nav className="m-header__actions" aria-label="actiemenu">
-          <ul className="m-header__list">
-            <li className="m-header__item">
-              <a
-                href={pageToHash.about}
-                className="m-header__link"
-                aria-current={currentPage === 'about' ? 'page' : undefined}
-                onClick={event => handleLinkClick(event, 'about')}
-              >
-                {pageToLabel.about}
-              </a>
-            </li>
           </ul>
         </nav>
       </div>
