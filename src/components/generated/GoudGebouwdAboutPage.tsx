@@ -92,10 +92,10 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
               <span>Onze missie</span>
             </h2>
             <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed max-w-3xl">
-              <span>Het inspireren en informeren van NCG en IMG,</span><br />
-              <span>overheid en andere professionals over de</span><br />
-              <span>gang van zaken bij versterking en</span><br />
-              <span>nieuwbouw in het Groningse landschap.</span>
+              <span>Waar GoudGebouwd succesverhalen deelt,</span><br />
+              <span>verzamelt FoutGebouwd verhalen van bewoners</span><br />
+              <span>om zichtbaar te maken wat er echt speelt</span><br />
+              <span>in het Groningse landschap.</span>
             </p>
           </motion.div>
 
@@ -117,23 +117,23 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
                 <span>Projecten</span>
               </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
-                <span>Zorgvuldig geselecteerde</span><br />
-                <span>voorbeeldprojecten uit</span><br />
+                <span>Verhalen van de </span><br />
+                <span>bewoners uit</span><br />
                 <span>de hele regio</span>
               </p>
             </div>
 
             <div className="bg-white p-8 rounded-sm border border-[#e0e0e0]">
               <div className="text-4xl sm:text-5xl font-bold text-[#4a7c59] mb-4">
-                <span>100+</span>
+                <span>4+</span>
               </div>
               <h3 className="text-lg font-semibold text-[#4a4237] mb-3">
-                <span>Architecten</span>
+                <span>Vrijwilligers</span>
               </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
                 <span>Betrokken bij de</span><br />
-                <span>realisatie van deze</span><br />
-                <span>inspirerende werken</span>
+                <span>realisatie van</span><br />
+                <span>project FoutGebouwd</span>
               </p>
             </div>
 
@@ -145,9 +145,9 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
                 <span>Start initiatief</span>
               </h3>
               <p className="text-[#6b6b6b] leading-relaxed">
-                <span>Sinds de oprichting</span><br />
-                <span>inspireren we de regio</span><br />
-                <span>met kwalitatieve bouw</span>
+                <span>Deel je verhaal</span><br />
+                <span>leer van elkaar</span><br />
+                <span>en laat je stem horen</span>
               </p>
             </div>
           </motion.div>
@@ -168,15 +168,15 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-lg font-semibold text-[#4a4237] mb-3">
-                  <span>Team van Fout Gebouwd</span>
+                  <span>Fout Gebouwd</span>
                 </h3>
                 <div className="text-[#6b6b6b] space-y-2">
                   <p>
-                    <span>Atelier Regiobouwmeester</span>
+                    <span>Namens de vrijwilligers</span>
                   </p>
                   <p>
-                    <span>Cascadeplein 10</span><br />
-                    <span>9726 AD Groningen</span>
+                    <span>uit de </span><br />
+                    <span>provincie Groningen</span>
                   </p>
                 </div>
               </div>
@@ -189,7 +189,7 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
                     <span>info@foutgebouwd.nl</span>
                   </p>
                   <p>
-                    <span>www.nationaalcoordinatorgroningen.nl</span>
+                    <span>www.foutgebouwd.nl</span>
                   </p>
                 </div>
               </div>
