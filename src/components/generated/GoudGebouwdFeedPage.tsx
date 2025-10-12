@@ -29,7 +29,7 @@ const projects: Project[] = [{
   id: '2',
   number: '#07',
   title: 'Garrelsweer',
-  image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
+  image: 'https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1760265939331-b3dd2b0b6663image',
   type: 'image'
 }, {
   id: '3',
