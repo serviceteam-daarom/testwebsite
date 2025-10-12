@@ -28,7 +28,7 @@ const projects: Project[] = [{
 }, {
   id: '2',
   number: '#07',
-  title: 'Wilgenbos',
+  title: 'Garrelsweer',
   image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
   type: 'image'
 }, {
