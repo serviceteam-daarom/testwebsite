@@ -159,7 +159,7 @@ export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
               <p>
                 <span>Welkom bij Fout Gebouwd. Een inspiratiegids</span><br />
                 <span>met projecten uit het Groningse</span><br />
-                <span>versterkingsgebied, met weinig oog voor</span><br />
+                <span>versterkingsgebied, met te weinig oog voor</span><br />
                 <span>de bewoners en de dorpen. Geselecteerd</span><br />
                 <span>door de bewoners van de provincie Groningen,</span><br />
                 <span>voor het Nationaal Coördinator Groningen en de politiek in Den Haag.</span>
@@ -181,11 +181,11 @@ export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
             {projects.slice(0, 3).map((project, idx) => <div key={project.id} className="group cursor-pointer">
                 {idx === 0 && <div className="bg-[#4a7c59] text-white p-8 mb-6 rounded-sm">
                     <h3 className="text-2xl leading-tight font-medium">
-                      <span>Herbestemming,</span><br />
-                      <span>restauratie en</span><br />
-                      <span>hoogwaardige</span><br />
-                      <span>nieuwbouw gaan</span><br />
-                      <span>prima samen</span>
+                      <span>Slechte communicatie,</span><br />
+                      <span>lang wachten,</span><br />
+                      <span>hoge kosten</span><br />
+                      <span>en veel stress gaan</span><br />
+                      <span>helaas samen</span>
                     </h3>
                   </div>}
                 <div className="aspect-[4/3] bg-white rounded-sm overflow-hidden mb-3">
