@@ -22,7 +22,7 @@ const heroTitleLines = ['FOUT', 'GEBOUWD'];
 const projects: Project[] = [{
   id: '1',
   number: '#09',
-  title: 'Doorsnede b-b nieuw',
+  title: 'Ten Boer',
   image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80',
   type: 'drawing'
 }, {
@@ -46,7 +46,7 @@ const projects: Project[] = [{
 }, {
   id: '5',
   number: '',
-  title: 'Herbestemming, restauratie en hoogwaardige nieuwbouw gaan prima samen',
+  title: 'Lange stiltes, slechte communicatie en veel onzekerheden gaan helaas samen',
   image: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80',
   type: 'image'
 }, {
