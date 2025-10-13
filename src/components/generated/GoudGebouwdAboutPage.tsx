@@ -186,7 +186,12 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
                 </h3>
                 <div className="text-[#6b6b6b] space-y-2">
                   <p>
-                    <span>info@foutgebouwd.nl</span>
+                    <a
+                      href="mailto:info@foutgebouwd.nl"
+                      className="hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a7c59]"
+                    >
+                      info@foutgebouwd.nl
+                    </a>
                   </p>
                   <p>
                     <span>www.foutgebouwd.nl</span>
