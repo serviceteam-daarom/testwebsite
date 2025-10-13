@@ -68,7 +68,7 @@ const projects: Project[] = [{
 }, {
   id: '7',
   number: '#07',
-  title: 'Wilgenbos woonwijk',
+  title: 'Garreslweer woonwijk',
   location: 'Garrelsweer',
   architect: 'ONIX',
   year: '2021',
