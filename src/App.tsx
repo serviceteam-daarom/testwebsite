@@ -123,14 +123,15 @@ function App() {
     }
   }, [currentPage, handleNavigate]);
 
- if (container === 'centered') {
-  return (
-    <div className="h-full w-full flex flex-col items-center justify-center">
-      <Menu onNavigate={handleNavigate} currentPage={currentPage} />
-      {generatedComponent}
-    </div>
-  );
-} else {
+  if (container === 'centered') {
+    return (
+      <div className="h-full w-full flex flex-col items-center justify-center">
+        <Menu onNavigate={handleNavigate} currentPage={currentPage} />
+        {generatedComponent}
+      </div>
+    );
+  }
+
   return (
     <>
       <Menu onNavigate={handleNavigate} currentPage={currentPage} />
@@ -138,3 +139,5 @@ function App() {
     </>
   );
 }
+
+export default App;
