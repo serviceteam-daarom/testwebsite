@@ -188,7 +188,7 @@ export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
                       <span>helaas samen</span>
                     </h3>
                   </div>}
-                <div className="aspect-[4/3] bg-white rounded-sm overflow-hidden mb-3">
+                <div className="aspect-square bg-white rounded-sm overflow-hidden mb-3">
                   <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
                 <div className="text-sm">
@@ -223,7 +223,7 @@ export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
                     </h3>
                   </div>}
                 {project.image && <div className="space-y-3">
-                    <div className="aspect-[4/3] bg-white rounded-sm overflow-hidden">
+                    <div className="aspect-square bg-white rounded-sm overflow-hidden">
                       <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     </div>
                     {project.number && <div className="text-sm">
@@ -247,7 +247,7 @@ export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
         }}>
             {projects.slice(6).map(project => <div key={project.id} className="group cursor-pointer">
                 {project.image && <div className="space-y-3">
-                    <div className="aspect-[4/3] bg-white rounded-sm overflow-hidden">
+                    <div className="aspect-square bg-white rounded-sm overflow-hidden">
                       <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     </div>
                     {project.number && <div className="text-sm">
