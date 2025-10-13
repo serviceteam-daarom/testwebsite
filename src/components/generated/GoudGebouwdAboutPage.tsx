@@ -172,10 +172,10 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
                 </h3>
                 <div className="text-[#6b6b6b] space-y-2">
                   <p>
-                    <span>Namens de vrijwilligers</span>
+                    <span>Namens de</span>
                   </p>
                   <p>
-                    <span>uit de </span><br />
+                    <span>bewoners uit de</span><br />
                     <span>provincie Groningen</span>
                   </p>
                 </div>
