@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Goudgebouwd navigatie --- */
+@layer components {
+  .main-nav.full-width {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f4ef;
+    padding: 1rem 2rem;
+  }
+
+  .main-nav__left,
+  .main-nav__right {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .main-nav__link {
+    text-decoration: none;
+    color: #222;
+    font-family: monospace;
+    font-size: 1rem;
+    transition: color 200ms ease-in-out;
+    font-weight: 500;
+  }
+
+  .main-nav__link:hover,
+  .main-nav__link.active {
+    color: #007b4d;
+    font-weight: 600;
+  }
+}
+
