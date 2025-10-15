@@ -1,4 +1,3 @@
-import { Mail } from 'lucide-react';
 import logo from './assets/foutgebouwd-logo.svg';
 
 function App() {
@@ -52,13 +51,6 @@ function App() {
         </div>
 
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
-          <a
-            href="mailto:info@foutgebouwd.nl"
-            className="inline-flex items-center gap-2 rounded-full bg-[#4a4237] px-7 py-3 text-sm font-semibold text-[#f6f7f3] shadow-lg shadow-[#c9c1b1]/40 transition hover:bg-[#433c32] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a4237]"
-          >
-            <Mail className="h-4 w-4" />
-            Mail ons alvast
-          </a>
           <p className="max-w-sm text-sm text-[#6a5f4c] sm:text-base">
             Liever direct mailen?{' '}
             <a
