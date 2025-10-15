@@ -1,5 +1,4 @@
 import { Mail } from 'lucide-react';
-import logo from './assets/foutgebouwd-logo.svg';
 
 function App() {
   return (
@@ -11,12 +10,9 @@ function App() {
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center gap-14 px-6 py-16 text-center sm:px-10">
-        <div className="flex flex-col items-center gap-4">
-          <img src={logo} alt="Logo van FoutGebouwd.nl" className="h-20 w-20" />
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#d9d3c6] bg-white/80 px-6 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-[#897c67] shadow-sm">
-            FoutGebouwd.nl
-          </span>
-        </div>
+        <span className="inline-flex items-center gap-2 rounded-full border border-[#d9d3c6] bg-white/80 px-6 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-[#897c67] shadow-sm">
+          FoutGebouwd.nl
+        </span>
 
         <div className="space-y-6 sm:space-y-8">
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
@@ -24,7 +20,7 @@ function App() {
           </h1>
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-[#6a5f4c] sm:text-lg">
             Terwijl we achter de schermen de puntjes op de i zetten, werken we aan een platform dat bewoners van Groningen helpt
-            hun verhalen over versterking, herstel en ervaring te delen.
+            hun verhalen over versterking, herstel en hoop te delen.
           </p>
         </div>
 
