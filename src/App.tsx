@@ -30,15 +30,25 @@ function App() {
 
         <div className="w-full max-w-3xl space-y-6 rounded-[28px] border border-[#e3e0d7] bg-white/80 p-8 text-left shadow-[0_25px_45px_-25px_rgba(98,86,63,0.35)] backdrop-blur-sm sm:p-10">
           <h2 className="text-lg font-semibold sm:text-xl">Ons doel</h2>
-          <p className="text-sm leading-relaxed text-[#6a5f4c] sm:text-base">
-            We bouwen aan een thuisbasis voor betrokken bewoners, professionals en initiatiefnemers die willen leren van elkaar
-            en samen willen werken aan een sterker Groningen.
-          </p>
-          <ul className="list-disc space-y-3 pl-5 text-sm text-[#6a5f4c] sm:text-base">
-            <li>Bewonersverhalen zichtbaar maken met respect voor hun ervaring.</li>
-            <li>Heldere uitleg bieden over het proces van versterken en herstellen.</li>
-            <li>Een community laten groeien die elkaar ondersteunt en vooruit helpt.</li>
-          </ul>
+          <div className="space-y-4 text-sm leading-relaxed text-[#6a5f4c] sm:text-base">
+            <p>
+              We bouwen aan een thuisbasis voor betrokken bewoners, professionals en initiatiefnemers die willen leren van elkaar
+              en samen werken aan een sterker Groningen.
+            </p>
+            <p>We maken bewonersverhalen zichtbaar met respect voor ieders ervaring en beleving.</p>
+            <p>
+              We geven heldere uitleg over het proces van versterken en herstellen, zodat iedereen weet waar hij of zij aan toe
+              is.
+            </p>
+            <p>
+              We laten zien wat er echt speelt, delen open en eerlijk onze ervaringen en geven samen tegengas waar beleid
+              tekortschiet.
+            </p>
+            <p>
+              We versterken het noaberschap: een netwerk van mensen die naar elkaar omkijken, elkaar ondersteunen en samen
+              opkomen voor een rechtvaardig Groningen.
+            </p>
+          </div>
         </div>
 
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
