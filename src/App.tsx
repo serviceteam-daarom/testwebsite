@@ -55,6 +55,17 @@ function App() {
             </a>
           </p>
         </div>
+
+        <p className="max-w-2xl text-sm text-[#6a5f4c] sm:text-base">
+          FoutGebouwd.nl is een knipoog naar{' '}
+          <a
+            href="https://goudgebouwd.nl"
+            className="font-semibold text-[#4a4237] underline decoration-[#c8c1b3] underline-offset-4 transition hover:decoration-[#4a4237]"
+          >
+            Goudgebouwd.nl
+          </a>
+          , waarin we de gedeelde ervaringen uit Groningen centraal zetten.
+        </p>
       </div>
     </main>
   );
