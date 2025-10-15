@@ -1,4 +1,5 @@
 import { Mail } from 'lucide-react';
+import logo from './assets/foutgebouwd-logo.svg';
 
 function App() {
   return (
@@ -10,9 +11,12 @@ function App() {
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center gap-14 px-6 py-16 text-center sm:px-10">
-        <span className="inline-flex items-center gap-2 rounded-full border border-[#d9d3c6] bg-white/80 px-6 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-[#897c67] shadow-sm">
-          FoutGebouwd.nl
-        </span>
+        <div className="flex flex-col items-center gap-4">
+          <img src={logo} alt="Logo van FoutGebouwd.nl" className="h-20 w-20" />
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#d9d3c6] bg-white/80 px-6 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-[#897c67] shadow-sm">
+            FoutGebouwd.nl
+          </span>
+        </div>
 
         <div className="space-y-6 sm:space-y-8">
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
@@ -20,7 +24,7 @@ function App() {
           </h1>
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-[#6a5f4c] sm:text-lg">
             Terwijl we achter de schermen de puntjes op de i zetten, werken we aan een platform dat bewoners van Groningen helpt
-            hun verhalen over versterking, herstel en hoop te delen.
+            hun verhalen over versterking, herstel en ervaring te delen.
           </p>
         </div>
 
@@ -57,14 +61,15 @@ function App() {
         </div>
 
         <p className="max-w-2xl text-sm text-[#6a5f4c] sm:text-base">
-          FoutGebouwd.nl is een knipoog naar{' '}
+          FoutGebouwd.nl is een site waarin we de gedeelde ervaringen uit Groningen centraal zetten. Het is gebouwd met knipoog
+          naar{' '}
           <a
             href="https://goudgebouwd.nl"
             className="font-semibold text-[#4a4237] underline decoration-[#c8c1b3] underline-offset-4 transition hover:decoration-[#4a4237]"
           >
             Goudgebouwd.nl
           </a>
-          , waarin we de gedeelde ervaringen uit Groningen centraal zetten.
+          .
         </p>
       </div>
     </main>
