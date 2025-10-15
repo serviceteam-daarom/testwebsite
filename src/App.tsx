@@ -52,13 +52,14 @@ function App() {
 
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
           <p className="max-w-sm text-sm text-[#6a5f4c] sm:text-base">
-            Liever direct mailen?{' '}
+            Heb jij iets meegemaakt rondom versterken of herstel in Groningen? Deel je verhaal met ons via{' '}
             <a
               href="mailto:info@foutgebouwd.nl"
               className="font-semibold text-[#4a4237] underline decoration-[#c8c1b3] underline-offset-4 transition hover:decoration-[#4a4237]"
             >
               info@foutgebouwd.nl
             </a>
+            . Samen maken we zichtbaar wat er echt speelt. 💚
           </p>
         </div>
 
