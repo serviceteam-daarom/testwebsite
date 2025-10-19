@@ -85,8 +85,9 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
                   We bouwen aan iets nieuws
                 </h1>
                 <p className="max-w-3xl text-base leading-relaxed text-[#5c5c5c] sm:text-lg">
-                  Onze community werkt hard aan een frisse digitale ervaring waar verhalen uit het Groningse versterkingsgebied
-                  een podium krijgen. We brengen bewoners, ontwerpers en projecten samen in één inspirerende omgeving.
+                  We werken hard aan deze site waar verhalen uit het Groningse versterkingsgebied een podium krijgen. We geven
+                  bewoners een stem. Hier verzamelen we verhalen over schade, versterking en wat er misgaat in Groningen om van
+                  elkaar te leren, te helpen en te steunen. Echte verhalen, vanuit noaberschap.
                 </p>
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                   <a
