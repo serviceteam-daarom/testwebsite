@@ -263,3 +263,5 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
     </div>
   );
 };
+
+export default GoudGebouwdAboutPage;
