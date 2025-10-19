@@ -256,12 +256,12 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
                       Geïnspireerd door
                     </h3>
                     <a
-                      href="https://www.goudbebouwd.nl"
+                      href="https://www.goudgebouwd.nl"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="mt-2 inline-flex items-center text-lg font-semibold text-[#4a7c59] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a7c59]"
                     >
-                      www.goudbebouwd.nl
+                      www.goudgebouwd.nl
                     </a>
                   </div>
                 </div>
