@@ -1,4 +1,3 @@
-import { FaLinkedin, FaFacebook, FaInstagram } from 'react-icons/fa';
 import logo from './assets/Logo foutgebouwd zonder pay-off.png';
 
 function App() {
