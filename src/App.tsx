@@ -1,4 +1,4 @@
-import logo from './assets/Naamloos (8).png';
+import logo from './assets/Logo foutgebouwd zonder pay-off.png';
 
 const goals = [
   'We bouwen aan een thuisbasis voor betrokken bewoners, professionals en initiatiefnemers die willen leren van elkaar en samen werken aan een sterker Groningen.',
