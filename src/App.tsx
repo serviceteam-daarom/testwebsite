@@ -1,6 +1,6 @@
-import logo from './assets/Logo foutgebouwd zonder pay-off.png';
+import logo from '../assets/Logo foutgebouwd zonder pay-off.png';
 
-function App() {
+function ComingSoon() {
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center text-black p-6 text-center">
       {/* Logo */}
@@ -11,14 +11,16 @@ function App() {
       />
 
       {/* Titel */}
-      <h1 className="text-4xl md:text-5xl font-bold mb-6">
-        Coming Soon – Fout Gebouwd
+      <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-pulse">
+        Fout Gebouwd – Coming Soon
       </h1>
 
       {/* Intro */}
       <p className="text-lg max-w-2xl mb-10 leading-relaxed">
-        We werken hard aan een platform voor bewoners van Groningen om hun
-        verhalen over versterking, herstel en ervaring te delen.
+        We bouwen rustig en goed aan FoutGebouwd.nl.  
+        Terwijl we achter de schermen de puntjes op de i zetten, werken we aan
+        een platform dat bewoners van Groningen helpt hun verhalen over
+        versterking, herstel en ervaring te delen.
       </p>
 
       {/* Ons doel */}
@@ -82,33 +84,30 @@ function App() {
         <p className="text-lg font-medium mb-4">
           Volg ons alvast via onze sociale kanalen
         </p>
-        <div className="flex justify-center gap-10 text-2xl text-amber-700">
+        <div className="flex justify-center gap-10 text-amber-700 text-lg">
           <a
             href="https://www.linkedin.com/company/109223311"
             target="_blank"
             rel="noreferrer"
             className="hover:text-amber-900 transition-transform transform hover:scale-110"
-            aria-label="LinkedIn"
           >
-            <Linkedin />
+            LinkedIn
           </a>
           <a
             href="https://www.facebook.com/profile.php?id=61581817210016"
             target="_blank"
             rel="noreferrer"
             className="hover:text-amber-900 transition-transform transform hover:scale-110"
-            aria-label="Facebook"
           >
-            <Facebook />
+            Facebook
           </a>
           <a
             href="https://www.instagram.com/foutgebouwd/#"
             target="_blank"
             rel="noreferrer"
             className="hover:text-amber-900 transition-transform transform hover:scale-110"
-            aria-label="Instagram"
           >
-            <Instagram />
+            Instagram
           </a>
         </div>
       </footer>
@@ -116,4 +115,4 @@ function App() {
   );
 }
 
-export default App;
+export default ComingSoon;
