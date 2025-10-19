@@ -79,7 +79,7 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
             >
               <div className="flex flex-col gap-6">
                 <span className="inline-flex w-fit items-center justify-center rounded-full bg-[#4a7c59]/10 px-4 py-1 text-sm font-semibold uppercase tracking-[0.18em] text-[#4a7c59]">
-                  GoudGebouwd wordt vernieuwd
+                  Coming soon
                 </span>
                 <h1 className="text-5xl font-bold leading-tight tracking-tight text-[#3d3a33] sm:text-6xl lg:text-7xl">
                   We bouwen aan iets nieuws
