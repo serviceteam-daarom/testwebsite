@@ -1,90 +1,93 @@
 import logo from './assets/Logo foutgebouwd zonder pay-off.png';
 
-const goals = [
-  'We bouwen aan een thuisbasis voor betrokken bewoners, professionals en initiatiefnemers die willen leren van elkaar en samen werken aan een sterker Groningen.',
-  'We maken bewonersverhalen zichtbaar met respect voor ieders ervaring en beleving.',
-  'We geven tips en heldere uitleg over het proces van versterken en herstellen.',
-  'We delen eerlijk onze ervaringen en geven samen tegengas waar beleid tekortschiet.',
-  'We versterken het noaberschap: een netwerk van mensen die elkaar ondersteunen en opkomen voor een rechtvaardig Groningen.',
-];
-
 function App() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-10 p-6 text-neutral-800 bg-white">
-      
-      {/* Logo bovenaan */}
-      <header className="flex flex-col items-center mt-8 space-y-6">
-        <img
-          src={logo}
-          alt="FoutGebouwd logo"
-          className="h-20 w-auto md:h-28 object-contain"
-        />
-      </header>
+    <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center text-white p-6 text-center">
+      {/* Logo */}
+      <img
+        src={logo}
+        alt="FoutGebouwd logo"
+        className="h-20 w-auto md:h-28 mb-8 object-contain"
+      />
 
-      {/* Titel en intro */}
-      <header className="fade-in space-y-4 text-center max-w-3xl">
-        <h1 className="text-5xl md:text-6xl font-bold flex flex-wrap justify-center gap-3">
-          <span className="animate-fadeWord">Fout</span>
-          <span className="animate-fadeWord [animation-delay:0.8s]">Gebouwd</span>
-        </h1>
+      {/* Titel */}
+      <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-pulse">
+        Coming Soon – Fout Gebouwd
+      </h1>
 
-        <p className="text-lg leading-relaxed md:text-xl">
-          We werken achter de schermen aan een platform dat bewoners van Groningen helpt
-          hun verhalen over versterking, herstel en ervaring te delen.
-        </p>
-      </header>
+      {/* Intro */}
+      <p className="text-lg max-w-2xl mb-10 leading-relaxed">
+        We werken hard aan een platform voor bewoners van Groningen om hun
+        verhalen over versterking, herstel en ervaring te delen.
+      </p>
 
       {/* Ons doel */}
-      <section className="fade-in w-full max-w-3xl rounded-2xl bg-white p-8 shadow-md">
-        <h2 className="text-lg font-semibold uppercase tracking-wide text-amber-800">
+      <section className="max-w-3xl bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-lg mb-10">
+        <h2 className="text-amber-400 text-xl font-semibold uppercase tracking-wide mb-4">
           Ons doel
         </h2>
-        <ul className="mt-4 list-disc space-y-2 pl-5 text-neutral-700">
-          {goals.map((goal) => (
-            <li key={goal}>{goal}</li>
-          ))}
+        <ul className="text-left list-disc space-y-2 pl-5 text-gray-200">
+          <li>
+            We bouwen aan een thuisbasis voor betrokken bewoners, professionals
+            en initiatiefnemers die willen leren van elkaar en samen werken aan
+            een sterker Groningen.
+          </li>
+          <li>
+            We maken bewonersverhalen zichtbaar met respect voor ieders
+            ervaring en beleving.
+          </li>
+          <li>
+            We geven tips en heldere uitleg over het proces van versterken en
+            herstellen.
+          </li>
+          <li>
+            We delen eerlijk onze ervaringen en geven samen tegengas waar beleid
+            tekortschiet.
+          </li>
+          <li>
+            We versterken het noaberschap: een netwerk van mensen die elkaar
+            ondersteunen en opkomen voor een rechtvaardig Groningen.
+          </li>
         </ul>
       </section>
 
       {/* Contact */}
-      <section className="fade-in space-y-4 text-center">
-        <p className="text-lg max-w-2xl mx-auto">
-          Heb jij iets meegemaakt rondom versterken of herstel in Groningen? Deel
-          je verhaal met ons via{' '}
-          <a
-            href="mailto:info@foutgebouwd.nl"
-            className="font-semibold text-amber-700 underline hover:text-amber-900"
-          >
-            info@foutgebouwd.nl
-          </a>
-          .
-        </p>
+      <p className="text-lg mb-6 max-w-2xl">
+        Heb jij iets meegemaakt rondom versterken of herstel in Groningen? Deel
+        je verhaal met ons via{' '}
+        <a
+          href="mailto:info@foutgebouwd.nl"
+          className="text-amber-400 underline hover:text-amber-500 transition"
+        >
+          info@foutgebouwd.nl
+        </a>
+        .
+      </p>
 
-        <p className="text-sm text-neutral-600">
-          Gebouwd met een knipoog naar{' '}
-          <a
-            href="https://goudgebouwd.nl"
-            target="_blank"
-            rel="noreferrer"
-            className="text-amber-700 underline hover:text-amber-900"
-          >
-            Goudgebouwd.nl
-          </a>
-          .
-        </p>
-      </section>
+      <p className="text-sm text-gray-400 mb-10">
+        Gebouwd met een knipoog naar{' '}
+        <a
+          href="https://goudgebouwd.nl"
+          target="_blank"
+          rel="noreferrer"
+          className="text-amber-400 underline hover:text-amber-500"
+        >
+          Goudgebouwd.nl
+        </a>
+        .
+      </p>
 
       {/* Social media links */}
-      <footer className="fade-in mt-12 text-center text-neutral-700 border-t border-neutral-200 pt-8">
+      <footer className="border-t border-gray-700 pt-6 w-full max-w-3xl">
         <p className="text-lg font-medium mb-4">
           Volg ons alvast via onze sociale kanalen
         </p>
-        <div className="flex justify-center gap-8 text-base md:text-lg">
+        <div className="flex justify-center gap-8 text-amber-400 text-lg">
           <a
             href="https://www.linkedin.com/company/109223311"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-amber-700 transition-colors"
+            className="hover:text-amber-500 transition"
           >
             LinkedIn
           </a>
@@ -92,7 +95,7 @@ function App() {
             href="https://www.facebook.com/profile.php?id=61581817210016"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-amber-700 transition-colors"
+            className="hover:text-amber-500 transition"
           >
             Facebook
           </a>
@@ -100,14 +103,13 @@ function App() {
             href="https://www.instagram.com/foutgebouwd/#"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-amber-700 transition-colors"
+            className="hover:text-amber-500 transition"
           >
             Instagram
           </a>
         </div>
       </footer>
-
-    </main>
+    </div>
   );
 }
 
