@@ -90,7 +90,7 @@ function App() {
             className="hover:text-amber-900 transition-transform transform hover:scale-110"
             aria-label="LinkedIn"
           >
-            <FaLinkedin />
+            <Linkedin />
           </a>
           <a
             href="https://www.facebook.com/profile.php?id=61581817210016"
@@ -99,7 +99,7 @@ function App() {
             className="hover:text-amber-900 transition-transform transform hover:scale-110"
             aria-label="Facebook"
           >
-            <FaFacebook />
+            <Facebook />
           </a>
           <a
             href="https://www.instagram.com/foutgebouwd/#"
@@ -108,7 +108,7 @@ function App() {
             className="hover:text-amber-900 transition-transform transform hover:scale-110"
             aria-label="Instagram"
           >
-            <FaInstagram />
+            <Instagram />
           </a>
         </div>
       </footer>
