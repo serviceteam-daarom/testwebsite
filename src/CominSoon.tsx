@@ -252,8 +252,17 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
                     </a>
                   </div>
                   <div className="rounded-xl border border-[#e6e6e6] bg-white/90 p-5 shadow-sm">
-                    <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7a7a7a]">Website</h3>
-                    <p className="mt-2 text-lg font-semibold text-[#4a7c59]">www.foutgebouwd.nl</p>
+                    <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7a7a7a]">
+                      Geïnspireerd door
+                    </h3>
+                    <a
+                      href="https://www.goudbebouwd.nl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 inline-flex items-center text-lg font-semibold text-[#4a7c59] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a7c59]"
+                    >
+                      www.goudbebouwd.nl
+                    </a>
                   </div>
                 </div>
               </div>
