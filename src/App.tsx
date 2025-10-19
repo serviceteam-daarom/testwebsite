@@ -1,8 +1,9 @@
+import { FaLinkedin, FaFacebook, FaInstagram } from 'react-icons/fa';
 import logo from './assets/Logo foutgebouwd zonder pay-off.png';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center text-white p-6 text-center">
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center text-black p-6 text-center">
       {/* Logo */}
       <img
         src={logo}
@@ -11,7 +12,7 @@ function App() {
       />
 
       {/* Titel */}
-      <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-pulse">
+      <h1 className="text-4xl md:text-5xl font-bold mb-6">
         Coming Soon – Fout Gebouwd
       </h1>
 
@@ -22,11 +23,11 @@ function App() {
       </p>
 
       {/* Ons doel */}
-      <section className="max-w-3xl bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-lg mb-10">
-        <h2 className="text-amber-400 text-xl font-semibold uppercase tracking-wide mb-4">
+      <section className="max-w-3xl bg-gray-50 border border-gray-200 p-8 rounded-2xl shadow-sm mb-10">
+        <h2 className="text-amber-700 text-xl font-semibold uppercase tracking-wide mb-4">
           Ons doel
         </h2>
-        <ul className="text-left list-disc space-y-2 pl-5 text-gray-200">
+        <ul className="text-left list-disc space-y-2 pl-5 text-gray-700">
           <li>
             We bouwen aan een thuisbasis voor betrokken bewoners, professionals
             en initiatiefnemers die willen leren van elkaar en samen werken aan
@@ -57,20 +58,20 @@ function App() {
         je verhaal met ons via{' '}
         <a
           href="mailto:info@foutgebouwd.nl"
-          className="text-amber-400 underline hover:text-amber-500 transition"
+          className="text-amber-700 underline hover:text-amber-900 transition"
         >
           info@foutgebouwd.nl
         </a>
         .
       </p>
 
-      <p className="text-sm text-gray-400 mb-10">
+      <p className="text-sm text-gray-600 mb-10">
         Gebouwd met een knipoog naar{' '}
         <a
           href="https://goudgebouwd.nl"
           target="_blank"
           rel="noreferrer"
-          className="text-amber-400 underline hover:text-amber-500"
+          className="text-amber-700 underline hover:text-amber-900"
         >
           Goudgebouwd.nl
         </a>
@@ -78,34 +79,37 @@ function App() {
       </p>
 
       {/* Social media links */}
-      <footer className="border-t border-gray-700 pt-6 w-full max-w-3xl">
+      <footer className="border-t border-gray-200 pt-6 w-full max-w-3xl">
         <p className="text-lg font-medium mb-4">
           Volg ons alvast via onze sociale kanalen
         </p>
-        <div className="flex justify-center gap-8 text-amber-400 text-lg">
+        <div className="flex justify-center gap-10 text-2xl text-amber-700">
           <a
             href="https://www.linkedin.com/company/109223311"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-amber-500 transition"
+            className="hover:text-amber-900 transition-transform transform hover:scale-110"
+            aria-label="LinkedIn"
           >
-            LinkedIn
+            <FaLinkedin />
           </a>
           <a
             href="https://www.facebook.com/profile.php?id=61581817210016"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-amber-500 transition"
+            className="hover:text-amber-900 transition-transform transform hover:scale-110"
+            aria-label="Facebook"
           >
-            Facebook
+            <FaFacebook />
           </a>
           <a
             href="https://www.instagram.com/foutgebouwd/#"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-amber-500 transition"
+            className="hover:text-amber-900 transition-transform transform hover:scale-110"
+            aria-label="Instagram"
           >
-            Instagram
+            <FaInstagram />
           </a>
         </div>
       </footer>
