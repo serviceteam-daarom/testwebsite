@@ -72,6 +72,39 @@ function App() {
           .
         </p>
       </section>
+      {/* Social media links */}
+<footer className="fade-in mt-12 text-center text-neutral-700">
+  <p className="text-lg font-medium mb-4">
+    Volg ons alvast via onze sociale kanalen
+  </p>
+  <div className="flex justify-center gap-6">
+    <a
+      href="https://www.linkedin.com/company/109223311"
+      target="_blank"
+      rel="noreferrer"
+      className="hover:text-amber-700 transition"
+    >
+      LinkedIn
+    </a>
+    <a
+      href="https://www.facebook.com/profile.php?id=61581817210016"
+      target="_blank"
+      rel="noreferrer"
+      className="hover:text-amber-700 transition"
+    >
+      Facebook
+    </a>
+    <a
+      href="https://www.instagram.com/foutgebouwd/#"
+      target="_blank"
+      rel="noreferrer"
+      className="hover:text-amber-700 transition"
+    >
+      Instagram
+    </a>
+  </div>
+</footer>
+
     </main>
   );
 }
