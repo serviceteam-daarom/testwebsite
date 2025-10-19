@@ -19,7 +19,7 @@ function App() {
           className="h-20 w-auto md:h-28 object-contain"
         />
 {/* Titel en intro */}
-<header className="fade-in space-y-4 text-center max-w-3xl">
+<header> className="fade-in space-y-4 text-center max-w-3xl">
   <h1 className="text-5xl md:text-6xl font-bold flex flex-wrap justify-center gap-3">
     <span className="animate-fadeWord">Fout</span>
     <span className="animate-fadeWord [animation-delay:0.8s]">Gebouwd</span>
