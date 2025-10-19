@@ -1,5 +1,4 @@
-import logo from '../assets/Logo foutgebouwd zonder pay-off.png';
-
+import logo from '../assets/logo-foutgebouwd-zonder-payoff.png';
 function ComingSoon() {
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center text-black p-6 text-center">
