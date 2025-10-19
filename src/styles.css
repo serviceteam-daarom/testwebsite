@@ -2,40 +2,107 @@
 @tailwind components;
 @tailwind utilities;
 
-/* --- Goudgebouwd navigatie --- */
-@layer components {
-  .main-nav.full-width {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f2f4ef;
-    padding: 1rem 2rem;
-  }
+body {
+  background: linear-gradient(to bottom right, #fff9ed, #fceac5);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
 
-  .main-nav__left,
-  .main-nav__right {
-    display: flex;
-    gap: 1rem;
-  }
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s ease-in-out forwards;
+}
 
-  .main-nav__link {
-    text-decoration: none;
-    color: #222;
-    font-family: monospace;
-    font-size: 1rem;
-    transition: color 200ms ease-in-out;
-    font-weight: 500;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-
-  .main-nav__link:hover,
-  .main-nav__link.active {
-    color: #007b4d;
-    font-weight: 600;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+.shape-container {
+  position: relative;
+  width: 120px;
+  height: 200px;
+  margin: 0 auto 2rem;
+  animation: floatAll 10s ease-in-out infinite;
+}
+
+.shape {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.95;
+}
+
+.blue-half {
+  top: 0;
+  width: 100px;
+  height: 50px;
+  background: #0072ce;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  transform-origin: center bottom;
+  animation: blueFloat 10s ease-in-out infinite;
+}
+
+.green-square {
+  top: 55px;
+  width: 80px;
+  height: 80px;
+  background: #009739;
+  transform: rotate(12deg);
+  animation: greenFloat 10s ease-in-out infinite;
+}
+
+.red-circle {
+  bottom: 0;
+  width: 90px;
+  height: 90px;
+  background: #e43d30;
+  border-radius: 50%;
+  animation: redFloat 10s ease-in-out infinite;
+}
+
+@keyframes blueFloat {
+  0%,
+  100% {
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -10px) rotate(-5deg);
+  }
+}
+
+@keyframes greenFloat {
+  0%,
+  100% {
+    transform: translate(-50%, 0) rotate(12deg);
+  }
+  50% {
+    transform: translate(-50%, 8px) rotate(20deg);
+  }
+}
+
+@keyframes redFloat {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -8px);
+  }
+}
+
+@keyframes floatAll {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
