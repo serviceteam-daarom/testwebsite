@@ -1,4 +1,4 @@
-import logo from './assets/Naamloos (9).png';
+import logo from './assets/Naamloos (8).png';
 
 const goals = [
   'We bouwen aan een thuisbasis voor betrokken bewoners, professionals en initiatiefnemers die willen leren van elkaar en samen werken aan een sterker Groningen.',
@@ -21,16 +21,17 @@ function App() {
    </header>
 
       {/* Titel en intro */}
-      <header className="fade-in space-y-4 text-center max-w-3xl">
-        <h1 className="text-3xl font-bold md:text-5xl">
-          We bouwen rustig en goed aan FoutGebouwd.nl
-        </h1>
-        <p className="text-lg leading-relaxed md:text-xl">
-          Terwijl we achter de schermen de puntjes op de i zetten, werken we aan
-          een platform dat bewoners van Groningen helpt hun verhalen over
-          versterking, herstel en ervaring te delen.
-        </p>
-      </header>
+<header className="fade-in space-y-4 text-center max-w-3xl">
+  <h1 className="text-4xl md:text-6xl font-bold flex flex-wrap justify-center gap-3">
+    <span className="fade-word delay-0">Fout</span>
+    <span className="fade-word delay-1">Gebouwd</span>
+  </h1>
+  <p className="text-lg leading-relaxed md:text-xl">
+    Terwijl we achter de schermen de puntjes op de i zetten, werken we aan
+    een platform dat bewoners van Groningen helpt hun verhalen over
+    versterking, herstel en ervaring te delen.
+  </p>
+</header>
 
       {/* Ons doel */}
       <section className="fade-in w-full max-w-3xl rounded-2xl bg-white p-8 shadow-md">
