@@ -27,8 +27,8 @@ function App() {
     <span className="fade-word delay-1">Gebouwd</span>
   </h1>
   <p className="text-lg leading-relaxed md:text-xl">
-    Terwijl we achter de schermen de puntjes op de i zetten, werken we aan
-    een platform dat bewoners van Groningen helpt hun verhalen over
+    We werken achter de schermen aan
+    een platform om bewoners van Groningen te helpem via hun verhalen over
     versterking, herstel en ervaring te delen.
   </p>
 </header>
