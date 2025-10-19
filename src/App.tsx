@@ -1,7 +1,7 @@
 const goals = [
   'We bouwen aan een thuisbasis voor betrokken bewoners, professionals en initiatiefnemers die willen leren van elkaar en samen werken aan een sterker Groningen.',
   'We maken bewonersverhalen zichtbaar met respect voor ieders ervaring en beleving.',
-  'We geven heldere uitleg over het proces van versterken en herstellen.',
+  'We geven tips en heldere uitleg over het proces van versterken en herstellen.',
   'We delen eerlijk onze ervaringen en geven samen tegengas waar beleid tekortschiet.',
   'We versterken het noaberschap: een netwerk van mensen die elkaar ondersteunen en opkomen voor een rechtvaardig Groningen.',
 ];
