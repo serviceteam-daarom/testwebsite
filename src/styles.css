@@ -106,3 +106,20 @@ body {
     transform: scale(1.03);
   }
 }
+body {
+  background: #ffffff; /* witte achtergrond */
+  font-family: 'Inter', sans-serif;
+  color: #2e2e2e;
+}
+
+/* Zachte schaduw voor contentblokken */
+.content-block {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Subtiele schaduw voor bewegende vormen */
+.shape {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
