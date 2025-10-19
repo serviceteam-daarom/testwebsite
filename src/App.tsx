@@ -18,20 +18,19 @@ function App() {
           alt="FoutGebouwd logo"
           className="h-20 w-auto md:h-28 object-contain"
         />
-   </header>
-
-      {/* Titel en intro */}
+{/* Titel en intro */}
 <header className="fade-in space-y-4 text-center max-w-3xl">
-  <h1 className="text-4xl md:text-6xl font-bold flex flex-wrap justify-center gap-3">
-    <span className="fade-word delay-0">Fout</span>
-    <span className="fade-word delay-1">Gebouwd</span>
+  <h1 className="text-5xl md:text-6xl font-bold flex flex-wrap justify-center gap-3">
+    <span className="animate-fadeWord">Fout</span>
+    <span className="animate-fadeWord [animation-delay:0.8s]">Gebouwd</span>
   </h1>
+
   <p className="text-lg leading-relaxed md:text-xl">
-    We werken achter de schermen aan
-    een platform om bewoners van Groningen te helpem via hun verhalen over
-    versterking, herstel en ervaring te delen.
+    We werken achter de schermen aan een platform dat bewoners van Groningen helpt
+    hun verhalen over versterking, herstel en ervaring te delen.
   </p>
 </header>
+
 
       {/* Ons doel */}
       <section className="fade-in w-full max-w-3xl rounded-2xl bg-white p-8 shadow-md">
