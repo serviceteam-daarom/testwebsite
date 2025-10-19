@@ -11,6 +11,7 @@ const goals = [
 function App() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center gap-10 p-6 text-neutral-800 bg-white">
+      
       {/* Logo bovenaan */}
       <header className="flex flex-col items-center mt-8 space-y-6">
         <img
@@ -18,19 +19,20 @@ function App() {
           alt="FoutGebouwd logo"
           className="h-20 w-auto md:h-28 object-contain"
         />
-{/* Titel en intro */}
-<header> className="fade-in space-y-4 text-center max-w-3xl">
-  <h1 className="text-5xl md:text-6xl font-bold flex flex-wrap justify-center gap-3">
-    <span className="animate-fadeWord">Fout</span>
-    <span className="animate-fadeWord [animation-delay:0.8s]">Gebouwd</span>
-  </h1>
+      </header>
 
-  <p className="text-lg leading-relaxed md:text-xl">
-    We werken achter de schermen aan een platform dat bewoners van Groningen helpt
-    hun verhalen over versterking, herstel en ervaring te delen.
-  </p>
-</header>
+      {/* Titel en intro */}
+      <header className="fade-in space-y-4 text-center max-w-3xl">
+        <h1 className="text-5xl md:text-6xl font-bold flex flex-wrap justify-center gap-3">
+          <span className="animate-fadeWord">Fout</span>
+          <span className="animate-fadeWord [animation-delay:0.8s]">Gebouwd</span>
+        </h1>
 
+        <p className="text-lg leading-relaxed md:text-xl">
+          We werken achter de schermen aan een platform dat bewoners van Groningen helpt
+          hun verhalen over versterking, herstel en ervaring te delen.
+        </p>
+      </header>
 
       {/* Ons doel */}
       <section className="fade-in w-full max-w-3xl rounded-2xl bg-white p-8 shadow-md">
@@ -71,40 +73,42 @@ function App() {
           .
         </p>
       </section>
+
       {/* Social media links */}
-<footer className="fade-in mt-12 text-center text-neutral-700">
-  <p className="text-lg font-medium mb-4">
-    Volg ons alvast via onze sociale kanalen
-  </p>
-  <div className="flex justify-center gap-6">
-    <a
-      href="https://www.linkedin.com/company/109223311"
-      target="_blank"
-      rel="noreferrer"
-      className="hover:text-amber-700 transition"
-    >
-      LinkedIn
-    </a>
-    <a
-      href="https://www.facebook.com/profile.php?id=61581817210016"
-      target="_blank"
-      rel="noreferrer"
-      className="hover:text-amber-700 transition"
-    >
-      Facebook
-    </a>
-    <a
-      href="https://www.instagram.com/foutgebouwd/#"
-      target="_blank"
-      rel="noreferrer"
-      className="hover:text-amber-700 transition"
-    >
-      Instagram
-    </a>
-  </div>
-</footer>
+      <footer className="fade-in mt-12 text-center text-neutral-700 border-t border-neutral-200 pt-8">
+        <p className="text-lg font-medium mb-4">
+          Volg ons alvast via onze sociale kanalen
+        </p>
+        <div className="flex justify-center gap-8 text-base md:text-lg">
+          <a
+            href="https://www.linkedin.com/company/109223311"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-amber-700 transition-colors"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=61581817210016"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-amber-700 transition-colors"
+          >
+            Facebook
+          </a>
+          <a
+            href="https://www.instagram.com/foutgebouwd/#"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-amber-700 transition-colors"
+          >
+            Instagram
+          </a>
+        </div>
+      </footer>
 
     </main>
   );
 }
+
 export default App;
