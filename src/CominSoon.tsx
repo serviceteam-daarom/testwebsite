@@ -82,7 +82,7 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
                   Coming soon
                 </span>
                 <h1 className="text-5xl font-bold leading-tight tracking-tight text-[#3d3a33] sm:text-6xl lg:text-7xl">
-                  We bouwen aan iets nieuws
+                  We bouwen aan FoutGebouwd.nl
                 </h1>
                 <p className="max-w-3xl text-base leading-relaxed text-[#5c5c5c] sm:text-lg">
                   We werken hard aan deze site waar verhalen uit het Groningse versterkingsgebied een podium krijgen. We geven
