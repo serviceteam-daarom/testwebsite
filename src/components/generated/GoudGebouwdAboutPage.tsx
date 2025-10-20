@@ -154,7 +154,7 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
             >
               <div className="grid gap-8 lg:grid-cols-2">
                 <div className="space-y-3">
-                  <h2 className="text-2xl font-semibold text-[#3d3a33] sm:text-3xl">Blijf in contact</h2>
+                  <h2 className="text-2xl font-semibold text-[#3d3a33] sm:text-3xl">Kom in contact</h2>
                   <p className="text-[#5c5c5c] sm:text-lg">
                     FoutGebouwd is een initiatief van en voor bewoners. Heb je een verhaal dat je wilt delen? Laat het ons weten.
                   </p>
