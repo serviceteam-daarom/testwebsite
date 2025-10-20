@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { motion } from "framer-motion";
 import Navigation from "./components/generated/Navigation";
 
@@ -9,52 +8,7 @@ export interface GoudGebouwdAboutPageProps {
   onNavigate?: (page: "feed" | "map" | "index" | "about") => void;
 }
 
-const launchDate = new Date("2025-06-01T08:00:00+02:00");
-
-type TimeLeft = {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-};
-
-const calculateTimeLeft = (): TimeLeft => {
-  const difference = launchDate.getTime() - Date.now();
-
-  if (difference <= 0) {
-    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-  }
-
-  const totalSeconds = Math.floor(difference / 1000);
-  const days = Math.floor(totalSeconds / (60 * 60 * 24));
-  const hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
-  const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
-  const seconds = totalSeconds % 60;
-
-  return { days, hours, minutes, seconds };
-};
-
 export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
-  const [timeLeft, setTimeLeft] = React.useState<TimeLeft>(() => calculateTimeLeft());
-
-  React.useEffect(() => {
-    const interval = window.setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-
-    return () => window.clearInterval(interval);
-  }, []);
-
-  const countdownItems = React.useMemo(
-    () => [
-      { label: "Dagen", value: timeLeft.days },
-      { label: "Uren", value: timeLeft.hours },
-      { label: "Minuten", value: timeLeft.minutes },
-      { label: "Seconden", value: timeLeft.seconds },
-    ],
-    [timeLeft]
-  );
-
   return (
     <div
       className={`relative min-h-screen bg-gradient-to-b from-[#f6f7f3] via-white to-[#f0f0eb] text-[#3d3a33] ${
@@ -104,41 +58,6 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
                     Bekijk verhalen die al live zijn
                   </button>
                 </div>
-              </div>
-            </motion.section>
-
-            <motion.section
-              className="rounded-2xl border border-white/70 bg-white/80 p-8 shadow-lg backdrop-blur-sm"
-              initial={{ opacity: 0, y: 32 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="flex flex-col gap-8">
-                <div className="flex flex-col gap-3">
-                  <h2 className="text-2xl font-semibold text-[#3d3a33] sm:text-3xl">Lancering staat gepland</h2>
-                  <p className="text-[#5c5c5c] sm:text-lg">
-                    We tellen af tot de nieuwe omgeving live gaat. Samen brengen we de volgende stap in het verhalenplatform naar
-                    voren.
-                  </p>
-                </div>
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-                  {countdownItems.map((item) => (
-                    <div
-                      key={item.label}
-                      className="flex flex-col items-center justify-center rounded-xl border border-[#e6e6e6] bg-white/90 px-4 py-6 shadow-sm"
-                    >
-                      <span className="text-4xl font-bold tracking-tight text-[#4a7c59] sm:text-5xl">
-                        {item.value.toString().padStart(2, "0")}
-                      </span>
-                      <span className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#7a7a7a]">
-                        {item.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-sm text-[#7a7a7a]">
-                  Verwachte lancering: {launchDate.toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" })}
-                </p>
               </div>
             </motion.section>
 
