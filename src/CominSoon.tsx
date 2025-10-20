@@ -79,9 +79,9 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
                     "Persoonlijke ervaringen vormen de basis. We zorgen voor ruimte om te reageren en verhalen te delen.",
                 },
                 {
-                  title: "Ontwerp en context",
+                  title: "Tegengeluid & dialoog",
                   description:
-                    "Verdiepende achtergrondinformatie over de architectuur, makers en het landschap waarin gebouwd wordt.",
+                    "We geven ruimte aan de verhalen die onder de oppervlakte blijven. Door bewoners, makers en betrokkenen samen te brengen, leggen we bloot wat echt speelt en wat beter kan.",
                 },
               ].map((item) => (
                 <div key={item.title} className="flex flex-col gap-3 rounded-xl border border-[#e6e6e6] bg-white/90 p-6 shadow-sm">
