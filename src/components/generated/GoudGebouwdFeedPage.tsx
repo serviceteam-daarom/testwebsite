@@ -1,374 +1,531 @@
-import React, { useState } from 'react';
-import { Plus, Minus } from 'lucide-react';
+import React, { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight, Filter, X } from 'lucide-react';
 import Navigation from './Navigation';
+
 type Project = {
   id: string;
   number: string;
   title: string;
+  location: string;
+  description: string;
   image: string;
-  type: 'image' | 'drawing';
+  tags: string[];
 };
-type FilterCategory = {
+
+type FilterGroup = {
   id: string;
   title: string;
   options: string[];
 };
+
+type Story = {
+  id: string;
+  kicker: string;
+  quote: string;
+  author: string;
+};
+
+type ProgrammeHighlight = {
+  id: string;
+  title: string;
+  copy: string;
+};
+
 type GoudGebouwdFeedPageProps = {
   className?: string;
   onNavigate?: (page: 'feed' | 'map' | 'index' | 'about') => void;
 };
-const heroTitleLines = ['GOUD', 'GEBOUWD'];
-const projects: Project[] = [{
-  id: '1',
-  number: '#09',
-  title: 'Ten Boer',
-  image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80',
-  type: 'drawing'
-}, {
-  id: '2',
-  number: '#07',
-  title: 'Garrelsweer',
-  image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Platanenweer%2C_a_national_monument_in_the_municipality_of_Eemsmond.jpg/800px-Platanenweer%2C_a_national_monument_in_the_municipality_of_Eemsmond.jpg',
-  type: 'image'
-}, {
-  id: '3',
-  number: '#06',
-  title: 'Uithuizen-Noord',
-  image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',
-  type: 'image'
-}, {
-  id: '4',
-  number: '#07',
-  title: 'Blok 6 zijgevel',
-  image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80',
-  type: 'image'
-}, {
-  id: '5',
-  number: '',
-  title: 'Lange stiltes, slechte communicatie en veel onzekerheden gaan helaas samen',
-  image: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80',
-  type: 'image'
-}, {
-  id: '6',
-  number: '',
-  title: '',
-  image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80',
-  type: 'drawing'
-}, {
-  id: '7',
-  number: '',
-  title: 'Met duurzame keuzes en slimme oplossingen in ontwerp hebben we een aardbeving bestendige nieuwbouw gerealiseerd',
-  image: '',
-  type: 'image'
-}, {
-  id: '8',
-  number: '',
-  title: '',
-  image: 'https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?w=800&q=80',
-  type: 'drawing'
-}, {
-  id: '9',
-  number: '',
-  title: '',
-  image: 'https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=800&q=80',
-  type: 'image'
-}, {
-  id: '10',
-  number: '',
-  title: '',
-  image: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800&q=80',
-  type: 'image'
-}];
-const IMAGE_DIMENSION = 800;
-const filterCategories: FilterCategory[] = [{
-  id: 'architect',
-  title: 'Architect',
-  options: ['De Zwarte Hond', 'ONIX', 'LAOS', 'MX13', 'Zofa Architecten']
-}, {
-  id: 'erfgoedstatus',
-  title: 'Erfgoedstatus',
-  options: ['Rijksmonument', 'Gemeentelijk monument', 'Beschermd stadsgezicht']
-}, {
-  id: 'bijzonderheden',
-  title: 'Bijzonderheden',
-  options: ['Duurzaam', 'Renovatie', 'Nieuwbouw', 'Herbestemming']
-}, {
-  id: 'aannemer',
-  title: 'Aannemer',
-  options: ['Van Wijnen', 'Dura Vermeer', 'BAM', 'Heijmans']
-}];
 
-// @component: GoudGebouwdFeedPage
-type FeedLayout = 'square' | 'tall' | 'wide';
-type FeedItem = {
-  kind: 'project';
-  id: string;
-  layout: FeedLayout;
-  project: Project;
-} | {
-  kind: 'text';
-  id: string;
-  layout: FeedLayout;
-  theme: 'gold' | 'green';
-  heading: string[];
-  kicker?: string;
-};
-const layoutClassMap: Record<FeedLayout, string> = {
-  square: '',
-  tall: 'sm:row-span-2',
-  wide: 'sm:col-span-2'
-};
-const mediaMinHeight: Record<FeedLayout, string> = {
-  square: 'min-h-[200px] sm:min-h-[240px] lg:min-h-[260px]',
-  tall: 'min-h-[260px] sm:min-h-[320px] lg:min-h-[380px]',
-  wide: 'min-h-[200px] sm:min-h-[220px] lg:min-h-[260px]'
-};
-const textThemeClasses = {
-  gold: {
-    container: 'bg-[#e0d4b8] text-[#342a18]',
-    kicker: 'text-[#8a5a1a]'
+const heroCopy = [
+  'Goud Gebouwd zet geslaagde versterkingsprojecten in de schijnwerpers.',
+  'Samen met bewoners, ontwerpers en bouwers maken we het Groningse landschap weerbaar, veilig en prachtig om in te wonen.'
+];
+
+const heroHighlights = [
+  { label: 'Architectenpartners', value: '17' },
+  { label: 'Bewoners betrokken', value: '1.200+' },
+  { label: 'Dorpskernen', value: '13' }
+];
+
+const stats = [
+  { label: 'Projecten opgeleverd', value: '48' },
+  { label: 'Projecten in uitvoering', value: '21' },
+  { label: 'Bewonersverhalen', value: '32' },
+  { label: 'Collectieve trajecten', value: '9' }
+];
+
+const filterGroups: FilterGroup[] = [
+  {
+    id: 'type',
+    title: 'Type project',
+    options: ['Nieuwbouw', 'Herbestemming', 'Renovatie', 'Versterking']
   },
-  green: {
-    container: 'bg-[#d5e2d3] text-[#26372a]',
-    kicker: 'text-[#3f6a4c]'
+  {
+    id: 'status',
+    title: 'Status',
+    options: ['Opgeleverd', 'In uitvoering']
+  },
+  {
+    id: 'architect',
+    title: 'Architect',
+    options: ['De Zwarte Hond', 'NOHNIK', 'Onix', 'KAW', 'Studio WA']
+  },
+  {
+    id: 'thema',
+    title: 'Thema',
+    options: ['Erfgoed', 'Duurzaam', 'Collectief', 'Landschap']
   }
-};
-const feedItems: FeedItem[] = [{
-  kind: 'text',
-  id: 'message-1',
-  layout: 'tall',
-  theme: 'gold',
-  kicker: 'Bewoners aan het woord',
-  heading: ['Slechte communicatie,', 'lang wachten,', 'hoge kosten', 'en veel stress gaan', 'helaas samen']
-}, {
-  kind: 'project',
-  id: projects[0].id,
-  layout: 'tall',
-  project: projects[0]
-}, {
-  kind: 'project',
-  id: projects[1].id,
-  layout: 'square',
-  project: projects[1]
-}, {
-  kind: 'project',
-  id: projects[2].id,
-  layout: 'wide',
-  project: projects[2]
-}, {
-  kind: 'project',
-  id: projects[3].id,
-  layout: 'square',
-  project: projects[3]
-}, {
-  kind: 'text',
-  id: 'message-2',
-  layout: 'wide',
-  theme: 'green',
-  kicker: 'Vooruit met elkaar',
-  heading: ['Met duurzame keuzes', 'en slimme oplossingen', 'hebben we een aardbeving', 'bestendige nieuwbouw gerealiseerd']
-}, {
-  kind: 'project',
-  id: projects[4].id,
-  layout: 'square',
-  project: projects[4]
-}, {
-  kind: 'project',
-  id: projects[5].id,
-  layout: 'tall',
-  project: projects[5]
-}, {
-  kind: 'project',
-  id: projects[6].id,
-  layout: 'square',
-  project: projects[6]
-}, {
-  kind: 'project',
-  id: projects[7].id,
-  layout: 'square',
-  project: projects[7]
-}, {
-  kind: 'project',
-  id: projects[8].id,
-  layout: 'wide',
-  project: projects[8]
-}, {
-  kind: 'project',
-  id: projects[9].id,
-  layout: 'square',
-  project: projects[9]
-}];
+];
+
+const optionToGroup = filterGroups.reduce<Record<string, string>>((map, group) => {
+  group.options.forEach(option => {
+    map[option] = group.id;
+  });
+  return map;
+}, {});
+
+const projects: Project[] = [
+  {
+    id: 'project-ten-boer',
+    number: '#01',
+    title: 'Dorpshuis Ten Boer',
+    location: 'Ten Boer',
+    description: 'Nieuw dorpshuis met collectieve ruimtes voor ontmoeting en cultuur.',
+    image: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=960&q=80',
+    tags: ['Nieuwbouw', 'Opgeleverd', 'Collectief', 'De Zwarte Hond']
+  },
+  {
+    id: 'project-garrelsweer',
+    number: '#02',
+    title: 'Herstel Platanenweer',
+    location: 'Garrelsweer',
+    description: 'Versterking en restauratie van de monumentale boerderij Platanenweer.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Platanenweer%2C_a_national_monument_in_the_municipality_of_Eemsmond.jpg/1024px-Platanenweer%2C_a_national_monument_in_the_municipality_of_Eemsmond.jpg',
+    tags: ['Herbestemming', 'Opgeleverd', 'Erfgoed', 'Onix']
+  },
+  {
+    id: 'project-uithuizen',
+    number: '#03',
+    title: 'Sterke school Uithuizen',
+    location: 'Uithuizen',
+    description: 'Toekomstbestendige school met ruimte voor buitenonderwijs en sport.',
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=960&q=80',
+    tags: ['Nieuwbouw', 'In uitvoering', 'Duurzaam', 'KAW']
+  },
+  {
+    id: 'project-zuidwolde',
+    number: '#04',
+    title: 'Wierdewoningen Zuidwolde',
+    location: 'Zuidwolde',
+    description: 'Aardbevingsbestendige woningen rond de historische wierde.',
+    image: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?w=960&q=80',
+    tags: ['Versterking', 'In uitvoering', 'Landschap', 'NOHNIK']
+  },
+  {
+    id: 'project-loppersum',
+    number: '#05',
+    title: 'Centrumplan Loppersum',
+    location: 'Loppersum',
+    description: 'Herinrichting van het centrum met aandacht voor erfgoed en verblijfskwaliteit.',
+    image: 'https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=960&q=80',
+    tags: ['Herbestemming', 'In uitvoering', 'Erfgoed', 'Studio WA']
+  },
+  {
+    id: 'project-bierum',
+    number: '#06',
+    title: 'Bewonerscollectief Bierum',
+    location: 'Bierum',
+    description: 'Collectief versterkingsplan waarbij bewoners samen keuzes maken.',
+    image: 'https://images.unsplash.com/photo-1465800872432-2f3d8880f768?w=960&q=80',
+    tags: ['Versterking', 'Opgeleverd', 'Collectief', 'Onix']
+  },
+  {
+    id: 'project-zeerijp',
+    number: '#07',
+    title: 'Pastorie Zeerijp',
+    location: 'Zeerijp',
+    description: 'Restauratie met duurzame installaties en behoud van historische kwaliteiten.',
+    image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=960&q=80',
+    tags: ['Herbestemming', 'Opgeleverd', 'Erfgoed', 'De Zwarte Hond']
+  },
+  {
+    id: 'project-middelstum',
+    number: '#08',
+    title: 'Dorpshuis Middelstum',
+    location: 'Middelstum',
+    description: 'Hergebruik van een karakteristieke boerderij als dorpshuis en zorgpunt.',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=960&q=80',
+    tags: ['Herbestemming', 'Opgeleverd', 'Collectief', 'NOHNIK']
+  }
+];
+
+const stories: Story[] = [
+  {
+    id: 'story-ten-boer',
+    kicker: 'Bewoners aan het woord',
+    quote: 'We hebben eindelijk een veilig huis waar we elkaar kunnen ontmoeten. Het voelt alsof het dorp weer klopt.',
+    author: 'Sjoukje, Ten Boer'
+  },
+  {
+    id: 'story-loppersum',
+    kicker: 'Proces',
+    quote: 'De ontwerpers luisterden naar iedere wens en vertaalden dat naar een plan dat past in onze dorpskern.',
+    author: 'Herman, Loppersum'
+  },
+  {
+    id: 'story-garrelsweer',
+    kicker: 'Vakmanschap',
+    quote: 'De restauratie brengt de ziel van de boerderij terug en maakt hem klaar voor de toekomst.',
+    author: 'Nienke, Garrelsweer'
+  }
+];
+
+const programmeHighlights: ProgrammeHighlight[] = [
+  {
+    id: 'highlight-collectief',
+    title: 'Collectieve aanpak',
+    copy: 'Bewoners, gemeente en ontwerpers werken nauw samen zodat iedere versterking meerwaarde oplevert voor het dorp.'
+  },
+  {
+    id: 'highlight-vakmanschap',
+    title: 'Vakmanschap & erfgoed',
+    copy: 'We versterken monumenten met respect voor historie en voegen nieuwe functies toe die het verhaal levend houden.'
+  },
+  {
+    id: 'highlight-toekomst',
+    title: 'Vooruitkijken',
+    copy: 'Met duurzame materialen en slimme energieoplossingen bouwen we aan dorpen die klaar zijn voor de toekomst.'
+  }
+];
+
 export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
-  const [openFilters, setOpenFilters] = useState<string[]>([]);
   const [selectedFilters, setSelectedFilters] = useState<Record<string, string[]>>({});
-  const toggleFilter = (filterId: string) => {
-    setOpenFilters(prev => prev.includes(filterId) ? prev.filter(id => id !== filterId) : [...prev, filterId]);
-  };
-  const toggleFilterOption = (categoryId: string, option: string) => {
+
+  const activeFilters = useMemo(() => Object.values(selectedFilters).flat(), [selectedFilters]);
+  const visibleProjects = useMemo(() => {
+    if (activeFilters.length === 0) {
+      return projects;
+    }
+
+    return projects.filter(project =>
+      activeFilters.every(filter => project.tags.includes(filter))
+    );
+  }, [activeFilters]);
+
+  const toggleFilterOption = (groupId: string, option: string) => {
     setSelectedFilters(prev => {
-      const current = prev[categoryId] || [];
-      const updated = current.includes(option) ? current.filter(o => o !== option) : [...current, option];
+      const current = prev[groupId] ?? [];
+      const nextGroup = current.includes(option)
+        ? current.filter(item => item !== option)
+        : [...current, option];
+
+      const nextState = { ...prev };
+      if (nextGroup.length > 0) {
+        nextState[groupId] = nextGroup;
+      } else {
+        delete nextState[groupId];
+      }
+
+      return nextState;
+    });
+  };
+
+  const handleRemoveActiveFilter = (option: string) => {
+    const groupId = optionToGroup[option];
+    if (!groupId) {
+      return;
+    }
+
+    setSelectedFilters(prev => {
+      const nextGroup = (prev[groupId] ?? []).filter(item => item !== option);
+      if (nextGroup.length === 0) {
+        const { [groupId]: _removed, ...rest } = prev;
+        return rest;
+      }
+
       return {
         ...prev,
-        [categoryId]: updated
+        [groupId]: nextGroup
       };
     });
   };
 
-  // @return
+  const handleResetFilters = () => {
+    setSelectedFilters({});
+  };
+
   return (
-    <div className={`min-h-screen bg-[#f3efe3] ${props.className || ''}`}>
-      <Navigation currentPage="feed" onNavigate={props.onNavigate} />
+    <div className={`min-h-screen bg-[#f4efe3] text-[#2f2613] ${props.className ?? ''}`}>
+      <Navigation currentPage="feed" onNavigate={props.onNavigate} className="hidden" />
 
-      <div className="pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-24">
-        <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_320px] xl:grid-cols-[minmax(0,1fr)_360px] lg:gap-16">
-            <div>
-              <div className="mb-16 sm:mb-20">
-                <motion.h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-[88px] leading-[0.92] font-bold text-[#2e2616] mb-6 sm:mb-8 tracking-tight overflow-hidden" initial={{
-            opacity: 0
-          }} animate={{
-            opacity: 1
-          }} transition={{
-            duration: 0.3,
-            delay: 0.2
-          }}>
-                {heroTitleLines.map((line, index) => <motion.span key={line} className="block" initial={{
-                y: 100,
-                opacity: 0
-              }} animate={{
-                y: 0,
-                opacity: 1
-              }} transition={{
-                duration: 0.8,
-                delay: 0.3 + index * 0.2,
-                ease: [0.22, 1, 0.36, 1]
-              }}>
-                  {line}
-                </motion.span>)}
-              </motion.h1>
-              <motion.div className="text-[#4a4237] text-base sm:text-lg leading-relaxed max-w-xl" initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay: 1.1,
-            ease: [0.22, 1, 0.36, 1]
-          }}>
-                <p>
-                  <span>Goud Gebouwd verzamelt voorbeelden van herstel en vernieuwing</span><br />
-                  <span>uit het Groningse versterkingsgebied. Een plek om te laten zien</span><br />
-                  <span>wat bewoners, architecten en bouwers samen voor elkaar krijgen,</span><br />
-                  <span>en hoe we dorpen toekomstbestendig maken.</span>
-                </p>
-              </motion.div>
-            </div>
+      <header className="border-b border-[#e0d5be] bg-[#faf7f1]/90 backdrop-blur">
+        <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-6">
+          <div className="flex items-center gap-3 text-sm font-medium uppercase tracking-[0.35em] text-[#8c6d36]">
+            <span className="h-2 w-2 rounded-full bg-[#8c6d36]" aria-hidden="true" />
+            <span>Goud Gebouwd</span>
+          </div>
+          <div className="hidden gap-6 text-sm font-medium text-[#5b4a2a] md:flex">
+            <button
+              type="button"
+              className="transition-colors hover:text-[#c4892b]"
+              onClick={() => props.onNavigate?.('feed')}
+            >
+              Projecten
+            </button>
+            <button
+              type="button"
+              className="transition-colors hover:text-[#c4892b]"
+              onClick={() => props.onNavigate?.('map')}
+            >
+              Kaart
+            </button>
+            <button
+              type="button"
+              className="transition-colors hover:text-[#c4892b]"
+              onClick={() => props.onNavigate?.('index')}
+            >
+              Index
+            </button>
+            <button
+              type="button"
+              className="transition-colors hover:text-[#c4892b]"
+              onClick={() => props.onNavigate?.('about')}
+            >
+              Over het programma
+            </button>
+          </div>
+        </div>
+      </header>
 
-            <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[220px] sm:auto-rows-[250px]" initial={{
-            opacity: 0,
-            y: 24
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.7,
-            delay: 1.2,
-            ease: [0.22, 1, 0.36, 1]
-          }}>
-              {feedItems.map((item, index) => {
-          const delay = 1.25 + index * 0.05;
-          if (item.kind === 'text') {
-            const theme = textThemeClasses[item.theme];
-            return <motion.div key={item.id} className={`flex flex-col justify-between rounded-xl p-8 shadow-md ${layoutClassMap[item.layout]} ${theme.container}`} initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay
-          }}>
-                    {item.kicker && <span className={`text-xs uppercase tracking-[0.3em] font-semibold ${theme.kicker}`}>
-                        {item.kicker}
-                      </span>}
-                    <div className="mt-6 space-y-1 text-2xl sm:text-[26px] leading-snug font-medium">
-                      {item.heading.map(line => <div key={line}>{line}</div>)}
-                    </div>
-                  </motion.div>;
-          }
-          return <motion.article key={item.id} className={`group flex flex-col ${layoutClassMap[item.layout]}`} initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay
-          }}>
-                    <div className={`flex h-full flex-col rounded-xl bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg`}>
-                      <div className={`relative flex-1 overflow-hidden rounded-t-xl ${mediaMinHeight[item.layout]}`}>
-                        {item.project.image ? <img src={item.project.image} alt={item.project.title || 'Projectvisualisatie'} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" /> : <div className="absolute inset-0 flex items-center justify-center bg-[#f1ede1] text-[11px] font-semibold uppercase tracking-[0.35em] text-[#8a7f65]">
-                            Geen beeld beschikbaar
-                          </div>}
-                      </div>
-                      <div className="px-5 py-4 flex items-center gap-3 text-sm">
-                        {item.project.number && <span className="font-mono uppercase tracking-wide text-[#7a6b4d]">{item.project.number}</span>}
-                        <span className="text-[#3d3525] font-medium leading-snug">{item.project.title || 'Project in voorbereiding'}</span>
-                      </div>
-                    </div>
-                  </motion.article>;
-        })}
+      <main className="mx-auto max-w-[1200px] px-6 pb-24 pt-14 sm:pt-20">
+        <section className="grid items-start gap-12 lg:grid-cols-[minmax(0,1fr)_360px]">
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="space-y-8"
+            >
+              <div className="inline-flex items-center gap-3 rounded-full border border-[#d5c5a0] bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-[#8c6d36]">
+                Programma versterking provincie Groningen
+              </div>
+              <h1 className="text-5xl font-semibold leading-[1.05] tracking-tight text-[#2c2313] sm:text-6xl lg:text-7xl">
+                GOUD
+                <br />
+                GEBOUWD
+              </h1>
+              <div className="space-y-4 text-base leading-relaxed text-[#4e3d23] sm:text-lg">
+                {heroCopy.map(line => (
+                  <p key={line}>{line}</p>
+                ))}
+              </div>
+              <div className="flex flex-wrap items-center gap-4">
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#c4892b] px-5 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-white transition-transform hover:scale-[1.02]"
+                  onClick={() => props.onNavigate?.('feed')}
+                >
+                  Alle projecten
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-2 rounded-full border border-[#d9cbae] px-5 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#8c6d36] transition-colors hover:border-[#c4892b] hover:text-[#c4892b]"
+                  onClick={() => props.onNavigate?.('map')}
+                >
+                  Bekijk op kaart
+                </button>
+              </div>
             </motion.div>
           </div>
 
-          <motion.aside className="hidden lg:block" initial={{
-            opacity: 0,
-            x: 60
-          }} animate={{
-            opacity: 1,
-            x: 0
-          }} transition={{
-            duration: 0.6,
-            delay: 1.8,
-            ease: [0.22, 1, 0.36, 1]
-          }}>
-            <div className="sticky top-32 space-y-6">
-              <div className="rounded-xl border border-[#d9d4c5] bg-white/80 shadow-sm backdrop-blur-sm">
-                <div className="border-b border-[#d9d4c5] px-6 py-5">
-                  <div className="text-xs font-semibold uppercase tracking-[0.3em] text-[#8a5a1a]">Filters</div>
-                  <p className="mt-2 text-sm text-[#6f6653] leading-relaxed">Verfijn projecten op architect, erfgoedstatus en meer om inspiratie sneller te vinden.</p>
-                </div>
-                <div className="px-6 py-4">
-                  <div className="space-y-4">
-                    {filterCategories.map(category => <div key={category.id} className="border-b border-[#ece7da] pb-4 last:border-b-0 last:pb-0">
-                        <button onClick={() => toggleFilter(category.id)} className="flex w-full items-center justify-between text-left text-sm font-medium text-[#3d3525] transition-colors hover:text-[#8a5a1a]">
-                          <span>{category.title}</span>
-                          {openFilters.includes(category.id) ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
-                        </button>
-                        {openFilters.includes(category.id) && <div className="mt-3 space-y-2">
-                            {category.options.map(option => {
-            const checked = selectedFilters[category.id]?.includes(option) || false;
-            return <label key={option} className="flex items-center gap-3 text-sm text-[#6f6653] transition-colors hover:text-[#3d3525]">
-                                <input type="checkbox" checked={checked} onChange={() => toggleFilterOption(category.id, option)} className="h-4 w-4 rounded-sm border border-[#b8af9a] text-[#8a5a1a] focus:ring-[#8a5a1a]" />
-                                <span>{option}</span>
-                              </label>;
-          })}
-                          </div>}
-                      </div>)}
+          <motion.aside
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-3xl border border-[#e0d5be] bg-white/80 p-8 shadow-sm"
+          >
+            <div className="space-y-6">
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8c6d36]">Highlights</span>
+                <p className="mt-3 text-base leading-relaxed text-[#3f321b]">
+                  Architectuur en vakmanschap in het Groningse versterkingsgebied. Geselecteerde projecten die laten zien wat er mogelijk is als je samenwerkt.
+                </p>
+              </div>
+              <div className="space-y-4">
+                {heroHighlights.map(item => (
+                  <div key={item.label} className="flex items-center justify-between rounded-2xl bg-[#f6f0e4] px-5 py-4">
+                    <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#8c6d36]">{item.label}</span>
+                    <span className="text-2xl font-semibold text-[#2f2614]">{item.value}</span>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </motion.aside>
-        </div>
-      </div>
-      </div>
+        </section>
+
+        <section className="mt-16 grid gap-4 rounded-3xl border border-[#e2d7c2] bg-white/70 p-6 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map(stat => (
+            <div key={stat.label} className="rounded-2xl bg-[#f6f0e4] px-5 py-6">
+              <div className="text-xs font-semibold uppercase tracking-[0.3em] text-[#8c6d36]">{stat.label}</div>
+              <div className="mt-3 text-3xl font-semibold text-[#2f2614]">{stat.value}</div>
+            </div>
+          ))}
+        </section>
+
+        <section className="mt-20">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8c6d36]">Projecten</span>
+              <h2 className="mt-2 text-3xl font-semibold text-[#2f2613]">Ontdek versterkingsprojecten in Groningen</h2>
+            </div>
+            <div className="flex items-center gap-3">
+              {activeFilters.length > 0 && (
+                <button
+                  type="button"
+                  onClick={handleResetFilters}
+                  className="inline-flex items-center gap-2 rounded-full border border-[#d9cbae] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#8c6d36] transition-colors hover:border-[#c4892b] hover:text-[#c4892b]"
+                >
+                  Reset filters
+                </button>
+              )}
+              <span className="inline-flex items-center gap-2 rounded-full bg-[#f6f0e4] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#8c6d36]">
+                <Filter className="h-4 w-4" />
+                {activeFilters.length} actief
+              </span>
+            </div>
+          </div>
+
+          {activeFilters.length > 0 && (
+            <div className="mt-6 flex flex-wrap gap-3">
+              {activeFilters.map(filter => (
+                <button
+                  key={filter}
+                  type="button"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#c4892b] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-white shadow-sm transition-colors hover:bg-[#a97522]"
+                  onClick={() => handleRemoveActiveFilter(filter)}
+                >
+                  {filter}
+                  <X className="h-3.5 w-3.5" />
+                </button>
+              ))}
+            </div>
+          )}
+
+          <div className="mt-10 grid gap-4 lg:grid-cols-4">
+            {filterGroups.map(group => (
+              <div key={group.id} className="rounded-3xl border border-[#e2d7c2] bg-white/70 p-5">
+                <div className="text-xs font-semibold uppercase tracking-[0.3em] text-[#8c6d36]">{group.title}</div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {group.options.map(option => {
+                    const isActive = selectedFilters[group.id]?.includes(option) ?? false;
+                    return (
+                      <button
+                        key={option}
+                        type="button"
+                        onClick={() => toggleFilterOption(group.id, option)}
+                        className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] transition-colors ${
+                          isActive
+                            ? 'bg-[#c4892b] text-white shadow-sm'
+                            : 'border border-[#d9cbae] text-[#8c6d36] hover:border-[#c4892b] hover:text-[#c4892b]'
+                        }`}
+                      >
+                        {option}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {visibleProjects.map(project => (
+              <motion.article
+                key={project.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="group overflow-hidden rounded-3xl border border-[#e2d7c2] bg-white shadow-sm transition-shadow hover:shadow-lg"
+              >
+                <div className="relative h-60 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/60 via-black/20 to-transparent px-5 py-4 text-sm font-medium text-white">
+                    <span>{project.location}</span>
+                    <span>{project.number}</span>
+                  </div>
+                </div>
+                <div className="space-y-4 px-5 py-6">
+                  <div className="space-y-1">
+                    <h3 className="text-xl font-semibold text-[#2f2614]">{project.title}</h3>
+                    <p className="text-sm leading-relaxed text-[#5b4a2a]">{project.description}</p>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map(tag => (
+                      <span key={tag} className="rounded-full bg-[#f6f0e4] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8c6d36]">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-20 grid gap-6 lg:grid-cols-3">
+          {stories.map(story => (
+            <div key={story.id} className="flex h-full flex-col justify-between rounded-3xl border border-[#e2d7c2] bg-white/70 p-8">
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8c6d36]">{story.kicker}</span>
+                <p className="mt-4 text-lg font-medium leading-relaxed text-[#2f2614]">“{story.quote}”</p>
+              </div>
+              <p className="mt-6 text-sm font-semibold text-[#8c6d36]">{story.author}</p>
+            </div>
+          ))}
+        </section>
+
+        <section className="mt-20 grid gap-8 rounded-3xl border border-[#e2d7c2] bg-white/80 p-8 lg:grid-cols-[1.2fr_1fr]">
+          <div className="space-y-6">
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8c6d36]">Werkwijze</span>
+              <h2 className="mt-2 text-3xl font-semibold text-[#2f2613]">Samen werken aan veilige en mooie dorpen</h2>
+            </div>
+            <p className="text-base leading-relaxed text-[#4e3d23]">
+              Goud Gebouwd verbindt bewonersinitiatieven, gemeenten en vakmensen. We kijken verder dan de versterkingsopgave en benutten elke ingreep voor ruimtelijke kwaliteit en nieuwe voorzieningen in het dorp.
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {programmeHighlights.map(item => (
+                <div key={item.id} className="rounded-2xl bg-[#f6f0e4] px-5 py-5">
+                  <h3 className="text-lg font-semibold text-[#2f2614]">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[#5b4a2a]">{item.copy}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-col justify-between rounded-3xl bg-[#2f2614] p-8 text-white">
+            <div className="space-y-4">
+              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-[#f1d7a7]">Meedoen</span>
+              <p className="text-lg leading-relaxed text-[#f9f0dd]">
+                Werk je aan een versterkingsproject en wil je jouw verhaal delen? Laat het ons weten en draag bij aan het netwerk van Goud Gebouwd.
+              </p>
+            </div>
+            <button
+              type="button"
+              className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-[#c4892b] px-5 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-white transition-transform hover:scale-[1.02]"
+              onClick={() => props.onNavigate?.('about')}
+            >
+              Neem contact op
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
+        </section>
+      </main>
     </div>
-    );
-  };
+  );
+};
