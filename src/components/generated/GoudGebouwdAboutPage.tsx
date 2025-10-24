@@ -109,7 +109,7 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
                     {
                       title: "Digitale proefomgeving",
                       description:
-                        "Vanaf het voorjaar testen we de vernieuwde site met een selecte groep bewoners uit het versterkingsgebied.",
+                        "Zodra er verhalen binnenkomen zullen we de site testen met een groep bewoners uit het versterkingsgebied.",
                     },
                     {
                       title: "Publieke lancering",
