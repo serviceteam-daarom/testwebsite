@@ -18,7 +18,7 @@ type GoudGebouwdFeedPageProps = {
   className?: string;
   onNavigate?: (page: 'feed' | 'map' | 'index' | 'about') => void;
 };
-const heroTitleLines = ['FOUT', 'GEBOUWD'];
+const heroTitleLines = ['GOUD', 'GEBOUWD'];
 const projects: Project[] = [{
   id: '1',
   number: '#09',
@@ -29,7 +29,7 @@ const projects: Project[] = [{
   id: '2',
   number: '#07',
   title: 'Garrelsweer',
-  image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Garrelsweer_-_Stadsweg_44.jpg/800px-Garrelsweer_-_Stadsweg_44.jpg?20210507181336',
+  image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Platanenweer%2C_a_national_monument_in_the_municipality_of_Eemsmond.jpg/800px-Platanenweer%2C_a_national_monument_in_the_municipality_of_Eemsmond.jpg',
   type: 'image'
 }, {
   id: '3',
@@ -99,6 +99,105 @@ const filterCategories: FilterCategory[] = [{
 }];
 
 // @component: GoudGebouwdFeedPage
+type FeedLayout = 'square' | 'tall' | 'wide';
+type FeedItem = {
+  kind: 'project';
+  id: string;
+  layout: FeedLayout;
+  project: Project;
+} | {
+  kind: 'text';
+  id: string;
+  layout: FeedLayout;
+  theme: 'gold' | 'green';
+  heading: string[];
+  kicker?: string;
+};
+const layoutClassMap: Record<FeedLayout, string> = {
+  square: '',
+  tall: 'sm:row-span-2',
+  wide: 'sm:col-span-2'
+};
+const mediaMinHeight: Record<FeedLayout, string> = {
+  square: 'min-h-[200px] sm:min-h-[240px] lg:min-h-[260px]',
+  tall: 'min-h-[260px] sm:min-h-[320px] lg:min-h-[380px]',
+  wide: 'min-h-[200px] sm:min-h-[220px] lg:min-h-[260px]'
+};
+const textThemeClasses = {
+  gold: {
+    container: 'bg-[#e0d4b8] text-[#342a18]',
+    kicker: 'text-[#8a5a1a]'
+  },
+  green: {
+    container: 'bg-[#d5e2d3] text-[#26372a]',
+    kicker: 'text-[#3f6a4c]'
+  }
+};
+const feedItems: FeedItem[] = [{
+  kind: 'text',
+  id: 'message-1',
+  layout: 'tall',
+  theme: 'gold',
+  kicker: 'Bewoners aan het woord',
+  heading: ['Slechte communicatie,', 'lang wachten,', 'hoge kosten', 'en veel stress gaan', 'helaas samen']
+}, {
+  kind: 'project',
+  id: projects[0].id,
+  layout: 'tall',
+  project: projects[0]
+}, {
+  kind: 'project',
+  id: projects[1].id,
+  layout: 'square',
+  project: projects[1]
+}, {
+  kind: 'project',
+  id: projects[2].id,
+  layout: 'wide',
+  project: projects[2]
+}, {
+  kind: 'project',
+  id: projects[3].id,
+  layout: 'square',
+  project: projects[3]
+}, {
+  kind: 'text',
+  id: 'message-2',
+  layout: 'wide',
+  theme: 'green',
+  kicker: 'Vooruit met elkaar',
+  heading: ['Met duurzame keuzes', 'en slimme oplossingen', 'hebben we een aardbeving', 'bestendige nieuwbouw gerealiseerd']
+}, {
+  kind: 'project',
+  id: projects[4].id,
+  layout: 'square',
+  project: projects[4]
+}, {
+  kind: 'project',
+  id: projects[5].id,
+  layout: 'tall',
+  project: projects[5]
+}, {
+  kind: 'project',
+  id: projects[6].id,
+  layout: 'square',
+  project: projects[6]
+}, {
+  kind: 'project',
+  id: projects[7].id,
+  layout: 'square',
+  project: projects[7]
+}, {
+  kind: 'project',
+  id: projects[8].id,
+  layout: 'wide',
+  project: projects[8]
+}, {
+  kind: 'project',
+  id: projects[9].id,
+  layout: 'square',
+  project: projects[9]
+}];
 export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
   const [openFilters, setOpenFilters] = useState<string[]>([]);
   const [selectedFilters, setSelectedFilters] = useState<Record<string, string[]>>({});
@@ -117,13 +216,16 @@ export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
   };
 
   // @return
-  return <div className={`min-h-screen bg-[#f6f7f3] ${props.className || ''}`}>
+  return (
+    <div className={`min-h-screen bg-[#f3efe3] ${props.className || ''}`}>
       <Navigation currentPage="feed" onNavigate={props.onNavigate} />
-      
+
       <div className="pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-24">
-        <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="mb-16 sm:mb-20">
-            <motion.h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-[80px] leading-[0.95] font-bold text-[#4a4237] mb-6 sm:mb-8 tracking-tight overflow-hidden" initial={{
+        <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_320px] xl:grid-cols-[minmax(0,1fr)_360px] lg:gap-16">
+            <div>
+              <div className="mb-16 sm:mb-20">
+                <motion.h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-[88px] leading-[0.92] font-bold text-[#2e2616] mb-6 sm:mb-8 tracking-tight overflow-hidden" initial={{
             opacity: 0
           }} animate={{
             opacity: 1
@@ -131,21 +233,21 @@ export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
             duration: 0.3,
             delay: 0.2
           }}>
-              {heroTitleLines.map((line, index) => <motion.span key={line} className="block" initial={{
-              y: 100,
-              opacity: 0
-            }} animate={{
-              y: 0,
-              opacity: 1
-            }} transition={{
-              duration: 0.8,
-              delay: 0.3 + index * 0.2,
-              ease: [0.22, 1, 0.36, 1]
-            }}>
-                {line}
-              </motion.span>)}
-            </motion.h1>
-            <motion.div className="text-[#4a4237] text-base sm:text-lg leading-relaxed max-w-xl" initial={{
+                {heroTitleLines.map((line, index) => <motion.span key={line} className="block" initial={{
+                y: 100,
+                opacity: 0
+              }} animate={{
+                y: 0,
+                opacity: 1
+              }} transition={{
+                duration: 0.8,
+                delay: 0.3 + index * 0.2,
+                ease: [0.22, 1, 0.36, 1]
+              }}>
+                  {line}
+                </motion.span>)}
+              </motion.h1>
+              <motion.div className="text-[#4a4237] text-base sm:text-lg leading-relaxed max-w-xl" initial={{
             opacity: 0,
             y: 20
           }} animate={{
@@ -156,138 +258,116 @@ export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
             delay: 1.1,
             ease: [0.22, 1, 0.36, 1]
           }}>
-              <p>
-                <span>Welkom bij Fout Gebouwd. Een inspiratiegids</span><br />
-                <span>met projecten uit het Groningse</span><br />
-                <span>versterkingsgebied, met te weinig oog voor</span><br />
-                <span>de bewoners en de dorpen. Geselecteerd</span><br />
-                <span>door de bewoners van de provincie Groningen,</span><br />
-                <span>voor het Nationaal Coördinator Groningen en de politiek in Den Haag.</span>
-              </p>
+                <p>
+                  <span>Goud Gebouwd verzamelt voorbeelden van herstel en vernieuwing</span><br />
+                  <span>uit het Groningse versterkingsgebied. Een plek om te laten zien</span><br />
+                  <span>wat bewoners, architecten en bouwers samen voor elkaar krijgen,</span><br />
+                  <span>en hoe we dorpen toekomstbestendig maken.</span>
+                </p>
+              </motion.div>
+            </div>
+
+            <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[220px] sm:auto-rows-[250px]" initial={{
+            opacity: 0,
+            y: 24
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.7,
+            delay: 1.2,
+            ease: [0.22, 1, 0.36, 1]
+          }}>
+              {feedItems.map((item, index) => {
+          const delay = 1.25 + index * 0.05;
+          if (item.kind === 'text') {
+            const theme = textThemeClasses[item.theme];
+            return <motion.div key={item.id} className={`flex flex-col justify-between rounded-xl p-8 shadow-md ${layoutClassMap[item.layout]} ${theme.container}`} initial={{
+            opacity: 0,
+            y: 30
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6,
+            delay
+          }}>
+                    {item.kicker && <span className={`text-xs uppercase tracking-[0.3em] font-semibold ${theme.kicker}`}>
+                        {item.kicker}
+                      </span>}
+                    <div className="mt-6 space-y-1 text-2xl sm:text-[26px] leading-snug font-medium">
+                      {item.heading.map(line => <div key={line}>{line}</div>)}
+                    </div>
+                  </motion.div>;
+          }
+          return <motion.article key={item.id} className={`group flex flex-col ${layoutClassMap[item.layout]}`} initial={{
+            opacity: 0,
+            y: 30
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6,
+            delay
+          }}>
+                    <div className={`flex h-full flex-col rounded-xl bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg`}>
+                      <div className={`relative flex-1 overflow-hidden rounded-t-xl ${mediaMinHeight[item.layout]}`}>
+                        {item.project.image ? <img src={item.project.image} alt={item.project.title || 'Projectvisualisatie'} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" /> : <div className="absolute inset-0 flex items-center justify-center bg-[#f1ede1] text-[11px] font-semibold uppercase tracking-[0.35em] text-[#8a7f65]">
+                            Geen beeld beschikbaar
+                          </div>}
+                      </div>
+                      <div className="px-5 py-4 flex items-center gap-3 text-sm">
+                        {item.project.number && <span className="font-mono uppercase tracking-wide text-[#7a6b4d]">{item.project.number}</span>}
+                        <span className="text-[#3d3525] font-medium leading-snug">{item.project.title || 'Project in voorbereiding'}</span>
+                      </div>
+                    </div>
+                  </motion.article>;
+        })}
             </motion.div>
           </div>
 
-          <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" initial={{
-          opacity: 0,
-          y: 30
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.7,
-          delay: 1.4,
-          ease: [0.22, 1, 0.36, 1]
-        }}>
-            {projects.slice(0, 3).map((project, idx) => <div key={project.id} className="group cursor-pointer">
-                {idx === 0 && <div className="bg-[#4a7c59] text-white p-8 mb-6 rounded-sm">
-                    <h3 className="text-2xl leading-tight font-medium">
-                      <span>Slechte communicatie,</span><br />
-                      <span>lang wachten,</span><br />
-                      <span>hoge kosten</span><br />
-                      <span>en veel stress gaan</span><br />
-                      <span>helaas samen</span>
-                    </h3>
-                  </div>}
-                <div className="aspect-square bg-white rounded-sm overflow-hidden mb-3">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          <motion.aside className="hidden lg:block" initial={{
+            opacity: 0,
+            x: 60
+          }} animate={{
+            opacity: 1,
+            x: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 1.8,
+            ease: [0.22, 1, 0.36, 1]
+          }}>
+            <div className="sticky top-32 space-y-6">
+              <div className="rounded-xl border border-[#d9d4c5] bg-white/80 shadow-sm backdrop-blur-sm">
+                <div className="border-b border-[#d9d4c5] px-6 py-5">
+                  <div className="text-xs font-semibold uppercase tracking-[0.3em] text-[#8a5a1a]">Filters</div>
+                  <p className="mt-2 text-sm text-[#6f6653] leading-relaxed">Verfijn projecten op architect, erfgoedstatus en meer om inspiratie sneller te vinden.</p>
                 </div>
-                <div className="text-sm">
-                  <span className="text-[#4a7c59] font-mono">{project.number}</span>
-                  <span className="text-[#4a4237] ml-2">{project.title}</span>
+                <div className="px-6 py-4">
+                  <div className="space-y-4">
+                    {filterCategories.map(category => <div key={category.id} className="border-b border-[#ece7da] pb-4 last:border-b-0 last:pb-0">
+                        <button onClick={() => toggleFilter(category.id)} className="flex w-full items-center justify-between text-left text-sm font-medium text-[#3d3525] transition-colors hover:text-[#8a5a1a]">
+                          <span>{category.title}</span>
+                          {openFilters.includes(category.id) ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                        </button>
+                        {openFilters.includes(category.id) && <div className="mt-3 space-y-2">
+                            {category.options.map(option => {
+            const checked = selectedFilters[category.id]?.includes(option) || false;
+            return <label key={option} className="flex items-center gap-3 text-sm text-[#6f6653] transition-colors hover:text-[#3d3525]">
+                                <input type="checkbox" checked={checked} onChange={() => toggleFilterOption(category.id, option)} className="h-4 w-4 rounded-sm border border-[#b8af9a] text-[#8a5a1a] focus:ring-[#8a5a1a]" />
+                                <span>{option}</span>
+                              </label>;
+          })}
+                          </div>}
+                      </div>)}
+                  </div>
                 </div>
-              </div>)}
-          </motion.div>
-
-          <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" initial={{
-          opacity: 0,
-          y: 30
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.7,
-          delay: 1.6,
-          ease: [0.22, 1, 0.36, 1]
-        }}>
-            {projects.slice(3, 6).map((project, idx) => <div key={project.id} className="group cursor-pointer">
-                {idx === 1 && <div className="bg-[#4a7c59] text-white p-8 mb-6 rounded-sm">
-                    <h3 className="text-2xl leading-tight font-medium">
-                      <span>Met duurzame keuzes</span><br />
-                      <span>en slimme</span><br />
-                      <span>oplossingen in</span><br />
-                      <span>ontwerp hebben we</span><br />
-                      <span>een aardbeving</span><br />
-                      <span>bestendige</span><br />
-                      <span>nieuwbouw</span><br />
-                      <span>gerealiseerd</span>
-                    </h3>
-                  </div>}
-                {project.image && <div className="space-y-3">
-                    <div className="aspect-square bg-white rounded-sm overflow-hidden">
-                      <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                    </div>
-                    {project.number && <div className="text-sm">
-                        <span className="text-[#4a7c59] font-mono">{project.number}</span>
-                        <span className="text-[#4a4237] ml-2">{project.title}</span>
-                      </div>}
-                  </div>}
-              </div>)}
-          </motion.div>
-
-          <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" initial={{
-          opacity: 0,
-          y: 30
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.7,
-          delay: 1.8,
-          ease: [0.22, 1, 0.36, 1]
-        }}>
-            {projects.slice(6).map(project => <div key={project.id} className="group cursor-pointer">
-                {project.image && <div className="space-y-3">
-                    <div className="aspect-square bg-white rounded-sm overflow-hidden">
-                      <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                    </div>
-                    {project.number && <div className="text-sm">
-                        <span className="text-[#4a7c59] font-mono">{project.number}</span>
-                        <span className="text-[#4a4237] ml-2">{project.title}</span>
-                      </div>}
-                  </div>}
-              </div>)}
-          </motion.div>
-
-          <motion.div className="fixed bottom-8 right-8 bg-white rounded-sm shadow-lg p-6 w-80 border border-[#e0e0e0] max-h-[calc(100vh-200px)] overflow-y-auto hidden lg:block" initial={{
-          opacity: 0,
-          x: 100
-        }} animate={{
-          opacity: 1,
-          x: 0
-        }} transition={{
-          duration: 0.6,
-          delay: 2,
-          ease: [0.22, 1, 0.36, 1]
-        }}>
-            <div className="text-sm text-[#666] mb-4 font-mono">Filters %</div>
-            <div className="space-y-2">
-              {filterCategories.map(category => <div key={category.id} className="border-b border-[#e0e0e0] last:border-b-0">
-                  <button onClick={() => toggleFilter(category.id)} className="w-full flex justify-between items-center py-3 text-left hover:text-[#4a7c59] transition-colors">
-                    <span className="text-sm text-[#4a4237]">{category.title}</span>
-                    {openFilters.includes(category.id) ? <Minus className="w-4 h-4 text-[#4a4237]" /> : <Plus className="w-4 h-4 text-[#4a4237]" />}
-                  </button>
-                  {openFilters.includes(category.id) && <div className="pb-3 space-y-2">
-                      {category.options.map(option => <label key={option} className="flex items-center gap-2 cursor-pointer group/option">
-                          <input type="checkbox" checked={selectedFilters[category.id]?.includes(option) || false} onChange={() => toggleFilterOption(category.id, option)} className="w-4 h-4 border-2 border-[#4a4237] rounded-none checked:bg-[#4a7c59] checked:border-[#4a7c59] cursor-pointer" />
-                          <span className="text-sm text-[#666] group-hover/option:text-[#4a4237]">
-                            {option}
-                          </span>
-                        </label>)}
-                    </div>}
-                </div>)}
+              </div>
             </div>
-          </motion.div>
+          </motion.aside>
         </div>
       </div>
-    </div>;
-};
+      </div>
+    </div>
+    );
+  };
