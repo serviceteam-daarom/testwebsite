@@ -114,7 +114,7 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
                     {
                       title: "Publieke lancering",
                       description:
-                        "In juni openen we het platform voor iedereen die wil leren van bouwprojecten en ervaringen in Groningen.",
+                        "In januari 2026 openen we het platform voor iedereen die wil leren van bouwprojecten en ervaringen in Groningen.",
                     },
                   ].map((item, index) => (
                     <div key={item.title} className="flex gap-4">
