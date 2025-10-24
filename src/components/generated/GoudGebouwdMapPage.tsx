@@ -32,7 +32,7 @@ const mapMarkers: MapMarker[] = [{
   id: '1',
   projectNumber: '#12',
   title: 'Lauwersoog',
-  image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=200&q=80',
+  image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Garrelsweer_-_Stadsweg_44.jpg/200px-Garrelsweer_-_Stadsweg_44.jpg?20210507181336',
   x: 32,
   y: 15,
   filters: {
