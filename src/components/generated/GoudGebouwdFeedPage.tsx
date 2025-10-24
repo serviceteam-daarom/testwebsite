@@ -80,6 +80,7 @@ const projects: Project[] = [{
   image: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800&q=80',
   type: 'image'
 }];
+const IMAGE_DIMENSION = 800;
 const filterCategories: FilterCategory[] = [{
   id: 'architect',
   title: 'Architect',
