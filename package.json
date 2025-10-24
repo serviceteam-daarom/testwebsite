@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "deploy:docs": "yarn build && node scripts/deploy-docs.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "format": "prettier --write .",
