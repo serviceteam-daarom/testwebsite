@@ -29,7 +29,7 @@ const projects: Project[] = [{
   id: '2',
   number: '#07',
   title: 'Garrelsweer',
-  image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Garrelsweer_-_Stadsweg_44.jpg/1200px-Garrelsweer_-_Stadsweg_44.jpg?20210507181336',
+  image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Garrelsweer_-_Stadsweg_44.jpg/800px-Garrelsweer_-_Stadsweg_44.jpg?20210507181336',
   type: 'image'
 }, {
   id: '3',
