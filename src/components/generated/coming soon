@@ -104,7 +104,7 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
                     {
                       title: "Community-sessies",
                       description:
-                        "We verzamelen verhalen en feedback van bewoners en partners zodat de nieuwe ervaring aansluit bij de praktijk.",
+                        "We verzamelen ervaringen van bewoners en professionals, zodat de aanpak beter gaat werken voor de mensen om wie het echt draait.",
                     },
                     {
                       title: "Digitale proefomgeving",
