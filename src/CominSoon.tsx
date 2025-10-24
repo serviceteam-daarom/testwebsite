@@ -50,13 +50,6 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
                   >
                     Blijf op de hoogte
                   </a>
-                  <button
-                    type="button"
-                    onClick={() => props.onNavigate?.("feed")}
-                    className="inline-flex items-center justify-center rounded-full border border-[#4a7c59] px-6 py-3 text-base font-semibold text-[#4a7c59] transition hover:bg-[#4a7c59]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a7c59]"
-                  >
-                    Bekijk verhalen die al live zijn
-                  </button>
                 </div>
               </div>
             </motion.section>
