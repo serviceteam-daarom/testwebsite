@@ -91,23 +91,25 @@ export const GoudGebouwdAboutPage = (props: GoudGebouwdAboutPageProps) => {
               transition={{ duration: 0.7, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="space-y-6">
-                <h2 className="text-2xl font-semibold text-[#3d3a33] sm:text-3xl">Roadmap naar lancering</h2>
+                <h2 className="text-2xl font-semibold text-[#3d3a33] sm:text-3xl">
+                  Route naar de lancering van deze website
+                </h2>
                 <div className="space-y-5">
                   {[
                     {
-                      title: "Community-sessies",
+                      title: "Verzamelen van verhalen en ervaringen van bewoners en betrokkenen.",
                       description:
-                        "We verzamelen ervaringen van bewoners en professionals, zodat de aanpak beter gaat werken voor de mensen om wie het echt draait.",
+                        "We ontvangen graag verhalen van bewoners en professionals om hun ervaringen te verzamelen. Zo leren we wat er goed gaat en wat beter kan, zodat de versterkingsaanpak echt werkt voor de mensen om wie het gaat. Dit mag ook anoniem.",
                     },
                     {
-                      title: "Digitale proefomgeving",
+                      title: "Proefversie van de website",
                       description:
-                        "Zodra er verhalen binnenkomen zullen we de site testen met een groep bewoners uit het versterkingsgebied.",
+                        "Als de eerste verhalen binnenkomen, testen we de website met een groep bewoners uit het aardbevingsgebied. Hun reacties helpen ons om de site gebruiksvriendelijk en duidelijk te maken.",
                     },
                     {
-                      title: "Publieke lancering",
+                      title: "Officiële start",
                       description:
-                        "In januari 2026 openen we het platform voor iedereen die wil leren van bouwprojecten en ervaringen in Groningen.",
+                        "In januari 2026 lanceren we foutgebouwd.nl live. Zodat het toegankelijk is voor iedereen. Zodat het zichtbaar wordt wat er echt speelt en zodat we van elkaar kunnen leren.",
                     },
                   ].map((item, index) => (
                     <div key={item.title} className="flex gap-4">
