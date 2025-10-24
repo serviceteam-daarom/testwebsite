@@ -29,7 +29,7 @@ const projects: Project[] = [{
   id: '2',
   number: '#07',
   title: 'Garrelsweer',
-  image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Garrelsweer_-_Stadsweg_44.jpg/800px-Garrelsweer_-_Stadsweg_44.jpg?20210507181336',
+  image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Platanenweer%2C_a_national_monument_in_the_municipality_of_Eemsmond.jpg/800px-Platanenweer%2C_a_national_monument_in_the_municipality_of_Eemsmond.jpg',
   type: 'image'
 }, {
   id: '3',
@@ -80,6 +80,7 @@ const projects: Project[] = [{
   image: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800&q=80',
   type: 'image'
 }];
+const IMAGE_DIMENSION = 800;
 const filterCategories: FilterCategory[] = [{
   id: 'architect',
   title: 'Architect',
@@ -189,7 +190,7 @@ export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
                     </h3>
                   </div>}
                 <div className="aspect-square bg-white rounded-sm overflow-hidden mb-3">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <img src={project.image} alt={project.title} width={IMAGE_DIMENSION} height={IMAGE_DIMENSION} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
                 <div className="text-sm">
                   <span className="text-[#4a7c59] font-mono">{project.number}</span>
@@ -224,7 +225,7 @@ export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
                   </div>}
                 {project.image && <div className="space-y-3">
                     <div className="aspect-square bg-white rounded-sm overflow-hidden">
-                      <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <img src={project.image} alt={project.title} width={IMAGE_DIMENSION} height={IMAGE_DIMENSION} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     </div>
                     {project.number && <div className="text-sm">
                         <span className="text-[#4a7c59] font-mono">{project.number}</span>
@@ -248,7 +249,7 @@ export const GoudGebouwdFeedPage = (props: GoudGebouwdFeedPageProps) => {
             {projects.slice(6).map(project => <div key={project.id} className="group cursor-pointer">
                 {project.image && <div className="space-y-3">
                     <div className="aspect-square bg-white rounded-sm overflow-hidden">
-                      <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <img src={project.image} alt={project.title} width={IMAGE_DIMENSION} height={IMAGE_DIMENSION} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     </div>
                     {project.number && <div className="text-sm">
                         <span className="text-[#4a7c59] font-mono">{project.number}</span>
