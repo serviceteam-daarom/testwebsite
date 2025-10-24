@@ -57,3 +57,12 @@ export default tseslint.config({
 ---
 
 **GitHub Pages**: zie `README_GITHUB_PAGES.md` voor snelle live-zet instructies.
+
+## Deployen vanuit deze container
+
+1. Draai `yarn build` om de productieversie in `dist/` aan te maken.
+2. Gebruik daarna `yarn deploy:docs` om de inhoud van `dist/` naar `docs/` te kopiëren.
+   - Het script maakt automatisch een `404.html`-fallback en `.nojekyll`-bestand aan.
+3. Commit en push de map `docs/` of gebruik de GitHub Pages workflow om te publiceren.
+
+> **Tip:** Als `yarn install` faalt door ontbrekende netwerktoegang, kun je de bestaande `dist/`-map handmatig naar `docs/` kopiëren en dezelfde stappen uitvoeren.
